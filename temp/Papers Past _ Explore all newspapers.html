@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html class='no-js' lang='en'>
+<head>
+<meta charset='utf-8'>
+<meta content='width=device-width, initial-scale=1.0' name='viewport'>
+<meta content='National Library of New Zealand' name='author'>
+<meta content='Papers Past,New Zealand' name='keywords'>
+<meta content='Papers Past contains more than three million pages of digitised New Zealand newspapers and periodicals. The collection covers the years 1839 to...' name='description'>
+<meta content='' name='publisher'>
+<meta content='noindex' name='robots'>
+<title>
+Papers Past | Explore all newspapers
+
+</title>
+<link rel="stylesheet" media="all" href="/assets/application-33b6ab4b656071f9c0f63bbde903d603a8ceb30e9f7bec10251e5d0aa609853c.css" />
+</head>
+
+<body class='formats newspapers papers-past'>
+<div class='nav' data-toggler='.expanded' id='responsive-navigation'>
+<div class='nav__title-bar title-bar' data-responsive-toggle='responsive-navigation-top-bar'>
+<div class='title-bar-left'>
+<div class='nav__title'><a href="/">Papers Past</a></div>
+</div>
+<div class='title-bar-right show-for-small-only'>
+<a class='nav__hamburger' data-toggle='responsive-navigation'>
+<span class='nav__hamburger__text'>MENU</span>
+<span class='nav__hamburger__bars fa fa-bars'></span>
+</a>
+</div>
+</div>
+<div class='nav__top-bar top-bar' role='navigation'>
+<div class='nav__left top-bar-left'>
+<ul class='nav__menu menu' id='format-switcher-bar'>
+<li class='nav__title hide-for-small-only'><a href="/">Papers Past</a></li>
+<li class='nav__item'>
+<a href="/newspapers">Newspapers</a>
+</li>
+<li class='nav__item'>
+<a href="/periodicals">Magazines and Journals</a>
+</li>
+<li class='nav__item'>
+<a href="/manuscripts">Letters and Diaries</a>
+</li>
+<li class='nav__item'>
+<a href="/parliamentary">Parliamentary Papers</a>
+</li>
+</ul>
+</div>
+<div class='nav__right top-bar-right'>
+<ul class='nav__menu menu hide-for-medium-only dropdown' data-dropdown-menu>
+<li class='nav__item nav__item--help'>
+<a id="quick-help" href="/help"><span class="translation_missing" title="translation missing: en.nav.quick.help">Help</span></a>
+</li>
+<li class='nav__item' id='nav-about'>
+<a href="/about"><span class="translation_missing" title="translation missing: en.nav.about">About</span></a>
+</li>
+</ul>
+<ul class='nav__menu show-for-medium-only menu dropdown' data-dropdown-menu>
+<li class='nav__item has-submenu'>
+<a class='fa fa-bars nav__hamburger nav__hamburger--help'></a>
+<ul class='nav__menu menu submenu dropdown' data-dropdown-menu>
+<li class='nav__item nav__item--help'>
+<a id="quick-help" href="/help"><span class="translation_missing" title="translation missing: en.nav.quick.help">Help</span></a>
+</li>
+<li class='nav__item' id='nav-about'>
+<a href="/about"><span class="translation_missing" title="translation missing: en.nav.about">About</span></a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class='off-canvas-wrapper'>
+
+<aside class='off-canvas position-left' data-off-canvas id='offCanvas'>
+<div class='div search-widget-container'>
+<form id="search-widget" action="/newspapers" accept-charset="UTF-8" method="get">
+<input type="hidden" name="title" id="title" value="" data-saved-value="" /><input type="hidden" name="start_date" id="start_date" value="" data-saved-value="" /><input type="hidden" name="end_date" id="end_date" value="" data-saved-value="" /><input type="hidden" name="snippet" id="snippet" value="true" />
+<div class='grid-x'>
+<div class='columns'>
+<h4>
+Search
+<small>articles</small>
+</h4>
+<h6>Within</h6>
+<div class='field'>
+<label for='scope'>
+<input type="radio" name="scope" id="scope_local" value="local" class="scope-select" checked="checked" />
+Displayed titles
+</label>
+</div>
+<div class='field'>
+<label for='scope'>
+<input type="radio" name="scope" id="scope_all" value="all" class="scope-select" />
+All Newspapers
+</label>
+</div>
+<div class='submit-error'></div>
+<div class='grid-x'>
+<div class='cell'>
+<h6>For these words</h6>
+<input type="text" name="query" id="query" placeholder="Keyword or name" data-facet="phrase" />
+</div>
+</div>
+<div class='row' id='phrase-tools'>
+<div class='cell'>
+<div class='field'>
+<label for='all'>
+<input type="radio" name="phrase" id="phrase_0" value="0" checked="checked" />
+<strong>All</strong> of these words
+</label>
+</div>
+<div class='field'>
+<label for='any'>
+<input type="radio" name="phrase" id="phrase_1" value="1" />
+<strong>Any</strong> of these words
+</label>
+</div>
+<div class='field'>
+<label for='exact'>
+<input type="radio" name="phrase" id="phrase_2" value="2" />
+This <strong>exact</strong> phrase
+</label>
+</div>
+</div>
+</div>
+<div class='row collapse'>
+<input type="submit" value="Search" class="button postfix solid" id="search-widget-button" data-disable-with="Search" />
+</div>
+</div>
+</div>
+</form>
+
+</div>
+
+</aside>
+<div class='grid-x off-canvas-content' data-off-canvas-content>
+<div class='cell'>
+<div class='sticky-row hide-for-print'>
+<div id='breadcrumb-bar'>
+<div class='grid-x grid-padding-x'>
+<div class='cell medium-2'>
+<div id='search-strip-container'>
+<div class='div'>
+<a id="search-strip-button" class="button " data-toggle="offCanvas" href="#"><i class="fa fa-search"></i> Search
+</a></div>
+
+</div>
+</div>
+<div class='cell medium-8 text-center'>
+<ul class='breadcrumbs' id='breadcrumbs'>
+<li class='breadcrumbs__crumb'>
+<a href="/newspapers">Newspapers</a>
+</li>
+<li class='breadcrumbs__seperator'><i class="fa fa-chevron-right"></i></li>
+<li class='breadcrumbs__crumb breadcrumbs__crumb--current'>
+Explore
+</li>
+</ul>
+</div>
+<div class='cell medium-2'></div>
+</div>
+</div>
+</div>
+
+</div>
+<div class='cell'>
+<div class='content grid-container'>
+<div class='grid-x grid-margin-x'>
+<div class='cell'>
+<h2>Explore all newspapers</h2>
+<div class='filter-panel show-for-medium'>
+<div class='grid-x grid-margin-x'>
+<div class='cell medium-4'>
+Region
+<select id='region-browse-filter'>
+<option value='all'>All regions</option>
+<option>Auckland</option>
+<option>Bay of Plenty</option>
+<option>Canterbury</option>
+<option>Gisborne</option>
+<option>Hawke&#39;s Bay</option>
+<option>Manawatu-Wanganui</option>
+<option>Marlborough</option>
+<option>National</option>
+<option>Nelson</option>
+<option>Northland</option>
+<option>Otago</option>
+<option>Samoa</option>
+<option>Taranaki</option>
+<option>Waikato</option>
+<option>Wellington</option>
+<option>West Coast</option>
+</select>
+</div>
+<div class='cell medium-5'>
+Year published
+<div data-end-year='1950' data-start-year='1839' id='year-slider-range'></div>
+</div>
+<div class='cell medium-3 end'>
+On a specific date
+<input type="text" name="specific-datepicker" id="specific-datepicker" value="" placeholder="DD-MM-YYYY" />
+</div>
+</div>
+<div class='grid-x'>
+<div class='cell medium-12 text-center'>
+<h5 class='filter-status hide'></h5>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class='grid-x'>
+<div class='cell'>
+<table class='table datatable' id='publication-browse'>
+<thead>
+<tr>
+<th class='title-column' width='500px'>
+Title
+</th>
+<th class='region-column show-for-medium'>
+Region
+</th>
+<th class='year-column'>
+First year
+</th>
+<th>
+Last year
+</th>
+</tr>
+</thead>
+<tbody>
+<tr data-publication='AMBPA'>
+<td><a href="/newspapers/akaroa-mail-and-banks-peninsula-advertiser">Akaroa Mail and Banks Peninsula Advertiser</a></td>
+<td class='show-for-medium'>Canterbury</td>
+<td>1877</td>
+<td>1939</td>
+</tr>
+<tr data-publication='ALG'>
+<td><a href="/newspapers/albertland-gazette">Albertland Gazette</a></td>
+<td class='show-for-medium'>Auckland</td>
+<td>1862</td>
+<td>1864</td>
+</tr>
+<tr data-publication='AHCOG'>
+<td><a href="/newspapers/alexandra-herald-and-central-otago-gazette">Alexandra Herald and Central Otago Gazette</a></td>
+<td class='show-for-medium'>Otago</td>
+<td>1902</td>
+<td>1948</td>
+</tr>
+<tr data-publication='AMW'>
+<td><a href="/newspapers/anglo-maori-warder">Anglo-Maori Warder</a></td>
+<td class='show-for-medium'>National</td>
+<td>1848</td>
+<td>1848</td>
+</tr>
+<tr data-publication='AONUPEP'>
+<td><a href="/newspapers/aotearoa-he-nupepa-ma-nga-tangata-maori">Aotearoa : he Nupepa ma nga Tangata Maori</a></td>
+<td class='show-for-medium'>National</td>
+<td>1892</td>
+<td>1892</td>
+</tr>
+<tr data-publication='AG'>
+<td><a href="/newspapers/ashburton-guardian">Ashburton Guardian</a></td>
+<td class='show-for-medium'>Canterbury</td>
+<td>1879</td>
+<td>1921</td>
+</tr>
+<tr data-publication='ASHH'>
+<td><a href="/newspapers/ashburton-herald">Ashburton Herald</a></td>
+<td class='show-for-medium'>Canterbury</td>
+<td>1878</td>
+<td>1880</td>
+</tr>
+<tr data-publication='ACNZC'>
+<td><a href="/newspapers/auckland-chronicle-and-new-zealand-colonist">Auckland Chronicle and New Zealand Colonist</a></td>
+<td class='show-for-medium'>Auckland</td>
+<td>1842</td>
+<td>1845</td>
+</tr>
+<tr data-publication='AS'>
+<td><a href="/newspapers/auckland-star">Auckland Star</a></td>
+<td class='show-for-medium'>Auckland</td>
+<td>1870</td>
+<td>1945</td>
+</tr>
+<tr data-publication='AKTIM'>
+<td><a href="/newspapers/auckland-times">Auckland Times</a></td>
+<td class='show-for-medium'>Auckland</td>
+<td>1842</td>
+<td>1846</td>
+</tr>
+<tr data-publication='BPB'>
+<td><a href="/newspapers/bay-of-plenty-beacon">Bay of Plenty Beacon</a></td>
+<td class='show-for-medium'>Bay of Plenty</td>
+<td>1939</td>
+<td>1945</td>
+</tr>
+<tr data-publication='BOPT'>
+<td><a href="/newspapers/bay-of-plenty-times">Bay of Plenty Times</a></td>
+<td class='show-for-medium'>Bay of Plenty</td>
+<td>1872</td>
+<td>1949</td>
+</tr>
+<tr data-publication='BH'>
+<td><a href="/newspapers/bruce-herald">Bruce Herald</a></td>
+<td class='show-for-medium'>Otago</td>
+<td>1865</td>
+<td>1920</td>
+</tr>
+<tr data-publication='BA'>
+<td><a href="/newspapers/bush-advocate">Bush Advocate</a></td>
+<td class='show-for-medium'>Hawke&#39;s Bay</td>
+<td>1888</td>
+<td>1912</td>
+</tr>
+<tr data-publication='CHARG'>
+<td><a href="/newspapers/charleston-argus">Charleston Argus</a></td>
+<td class='show-for-medium'>West Coast</td>
+<td>1867</td>
+<td>1867</td>
+</tr>
+<tr data-publication='CL'>
+<td><a href="/newspapers/clutha-leader">Clutha Leader</a></td>
+<td class='show-for-medium'>Otago</td>
+<td>1874</td>
+<td>1920</td>
+</tr>
+<tr data-publication='TC'>
+<td><a href="/newspapers/colonist">Colonist</a></td>
+<td class='show-for-medium'>Nelson</td>
+<td>1857</td>
+<td>1920</td>
+</tr>
+<tr data-publication='CROMARG'>
+<td><a href="/newspapers/cromwell-argus">Cromwell Argus</a></td>
+<td class='show-for-medium'>Otago</td>
+<td>1869</td>
+<td>1948</td>
+</tr>
+<tr data-publication='DSC'>
+<td><a href="/newspapers/daily-southern-cross">Daily Southern Cross</a></td>
+<td class='show-for-medium'>Auckland</td>
+<td>1843</td>
+<td>1876</td>
+</tr>
+<tr data-publication='DTN'>
+<td><a href="/newspapers/daily-telegraph">Daily Telegraph</a></td>
+<td class='show-for-medium'>Hawke&#39;s Bay</td>
+<td>1881</td>
+<td>1901</td>
+</tr>
+<tr data-publication='DOM'>
+<td><a href="/newspapers/dominion">Dominion</a></td>
+<td class='show-for-medium'>Wellington</td>
+<td>1907</td>
+<td>1920</td>
+</tr>
+<tr data-publication='DUNST'>
+<td><a href="/newspapers/dunstan-times">Dunstan Times</a></td>
+<td class='show-for-medium'>Otago</td>
+<td>1866</td>
+<td>1948</td>
+</tr>
+<tr data-publication='EG'>
+<td><a href="/newspapers/ellesmere-guardian">Ellesmere Guardian</a></td>
+<td class='show-for-medium'>Canterbury</td>
+<td>1891</td>
+<td>1945</td>
+</tr>
+<tr data-publication='EP'>
+<td><a href="/newspapers/evening-post">Evening Post</a></td>
+<td class='show-for-medium'>Wellington</td>
+<td>1865</td>
+<td>1945</td>
+</tr>
+<tr data-publication='ESD'>
+<td><a href="/newspapers/evening-star">Evening Star</a></td>
+<td class='show-for-medium'>Otago</td>
+<td>1865</td>
+<td>1947</td>
+</tr>
+<tr data-publication='FS'>
+<td><a href="/newspapers/feilding-star">Feilding Star</a></td>
+<td class='show-for-medium'>Manawatu-Wanganui</td>
+<td>1882</td>
+<td>1920</td>
+</tr>
+<tr data-publication='NZFL'>
+<td><a href="/newspapers/free-lance">Free Lance</a></td>
+<td class='show-for-medium'>Wellington</td>
+<td>1900</td>
+<td>1920</td>
+</tr>
+<tr data-publication='GISH'>
+<td><a href="/newspapers/gisborne-herald">Gisborne Herald</a></td>
+<td class='show-for-medium'>Gisborne</td>
+<td>1939</td>
+<td>1950</td>
+</tr>
+<tr data-publication='GLOBE'>
+<td><a href="/newspapers/globe">Globe</a></td>
+<td class='show-for-medium'>Canterbury</td>
+<td>1874</td>
+<td>1882</td>
+</tr>
+<tr data-publication='GBARG'>
+<td><a href="/newspapers/golden-bay-argus">Golden Bay Argus</a></td>
+<td class='show-for-medium'>Nelson</td>
+<td>1883</td>
+<td>1911</td>
+</tr>
+<tr data-publication='GRA'>
+<td><a href="/newspapers/grey-river-argus">Grey River Argus</a></td>
+<td class='show-for-medium'>West Coast</td>
+<td>1866</td>
+<td>1920</td>
+</tr>
+<tr data-publication='GEST'>
+<td><a href="/newspapers/greymouth-evening-star">Greymouth Evening Star</a></td>
+<td class='show-for-medium'>West Coast</td>
+<td>1901</td>
+<td>1920</td>
+</tr>
+<tr data-publication='HAEATA'>
+<td><a href="/newspapers/haeata">Haeata</a></td>
+<td class='show-for-medium'>National</td>
+<td>1859</td>
+<td>1862</td>
+</tr>
+<tr data-publication='HAST'>
+<td><a href="/newspapers/hastings-standard">Hastings Standard</a></td>
+<td class='show-for-medium'>Hawke&#39;s Bay</td>
+<td>1896</td>
+<td>1920</td>
+</tr>
+<tr data-publication='HNS'>
+<td><a href="/newspapers/hawera-normanby-star">Hawera &amp; Normanby Star</a></td>
+<td class='show-for-medium'>Taranaki</td>
+<td>1880</td>
+<td>1924</td>
+</tr>
+<tr data-publication='HBH'>
+<td><a href="/newspapers/hawke-s-bay-herald">Hawke&#39;s Bay Herald</a></td>
+<td class='show-for-medium'>Hawke&#39;s Bay</td>
+<td>1857</td>
+<td>1904</td>
+</tr>
+<tr data-publication='HBT'>
+<td><a href="/newspapers/hawke-s-bay-times">Hawke&#39;s Bay Times</a></td>
+<td class='show-for-medium'>Hawke&#39;s Bay</td>
+<td>1861</td>
+<td>1874</td>
+</tr>
+<tr data-publication='HBWT'>
+<td><a href="/newspapers/hawke-s-bay-weekly-times">Hawke&#39;s Bay Weekly Times</a></td>
+<td class='show-for-medium'>Hawke&#39;s Bay</td>
+<td>1867</td>
+<td>1868</td>
+</tr>
+<tr data-publication='HIIR'>
+<td><a href="/newspapers/hiiringa-i-te-whitu">Hiiringa i te Whitu</a></td>
+<td class='show-for-medium'>National</td>
+<td>1896</td>
+<td>1896</td>
+</tr>
+<tr data-publication='HOKIOI'>
+<td><a href="/newspapers/hokioi-o-nui-tireni-e-rere-atuna">Hokioi o Nui-Tireni, e rere atuna</a></td>
+<td class='show-for-medium'>National</td>
+<td>1862</td>
+<td>1863</td>
+</tr>
+<tr data-publication='HC'>
+<td><a href="/newspapers/horowhenua-chronicle">Horowhenua Chronicle</a></td>
+<td class='show-for-medium'>Manawatu-Wanganui</td>
+<td>1910</td>
+<td>1939</td>
+</tr>
+<tr data-publication='HLC'>
+<td><a href="/newspapers/hot-lakes-chronicle">Hot Lakes Chronicle</a></td>
+<td class='show-for-medium'>Bay of Plenty</td>
+<td>1895</td>
+<td>1910</td>
+</tr>
+<tr data-publication='HUIA'>
+<td><a href="/newspapers/huia-tangata-kotahi">Huia Tangata Kotahi</a></td>
+<td class='show-for-medium'>National</td>
+<td>1893</td>
+<td>1895</td>
+</tr>
+<tr data-publication='HN'>
+<td><a href="/newspapers/hutt-news">Hutt News</a></td>
+<td class='show-for-medium'>Wellington</td>
+<td>1927</td>
+<td>1945</td>
+</tr>
+<tr data-publication='HVI'>
+<td><a href="/newspapers/hutt-valley-independent">Hutt Valley Independent</a></td>
+<td class='show-for-medium'>Wellington</td>
+<td>1911</td>
+<td>1919</td>
+</tr>
+<tr data-publication='IT'>
+<td><a href="/newspapers/inangahua-times">Inangahua Times</a></td>
+<td class='show-for-medium'>West Coast</td>
+<td>1877</td>
+<td>1919</td>
+</tr>
+<tr data-publication='JUBIL'>
+<td><a href="/newspapers/jubilee-te-tiupiri">Jubilee : Te Tiupiri</a></td>
+<td class='show-for-medium'>National</td>
+<td>1898</td>
+<td>1900</td>
+</tr>
+<tr data-publication='KAHITI'>
+<td><a href="/newspapers/kahiti-tuturu-mo-aotearoa-me-te-waipounamu">Kahiti Tuturu mo Aotearoa, me te Waipounamu</a></td>
+<td class='show-for-medium'>National</td>
+<td>1894</td>
+<td>1896</td>
+</tr>
+<tr data-publication='KWE'>
+<td><a href="/newspapers/kaipara-and-waitemata-echo">Kaipara and Waitemata Echo</a></td>
+<td class='show-for-medium'>Auckland</td>
+<td>1911</td>
+<td>1921</td>
+</tr>
+<tr data-publication='KOP'>
+<td><a href="/newspapers/karere-o-poneke">Karere o Poneke</a></td>
+<td class='show-for-medium'>Wellington</td>
+<td>1857</td>
+<td>1858</td>
+</tr>
+<tr data-publication='KCC'>
+<td><a href="/newspapers/king-country-chronicle">King Country Chronicle</a></td>
+<td class='show-for-medium'>Waikato</td>
+<td>1906</td>
+<td>1920</td>
+</tr>
+<tr data-publication='KORIM'>
+<td><a href="/newspapers/korimako">Korimako</a></td>
+<td class='show-for-medium'>National</td>
+<td>1882</td>
+<td>1890</td>
+</tr>
+<tr data-publication='KUMAT'>
+<td><a href="/newspapers/kumara-times">Kumara Times</a></td>
+<td class='show-for-medium'>West Coast</td>
+<td>1877</td>
+<td>1896</td>
+</tr>
+<tr data-publication='LCM'>
+<td><a href="/newspapers/lake-county-mail">Lake County Mail</a></td>
+<td class='show-for-medium'>Otago</td>
+<td>1947</td>
+<td>1948</td>
+</tr>
+<tr data-publication='LCP'>
+<td><a href="/newspapers/lake-county-press">Lake County Press</a></td>
+<td class='show-for-medium'>Otago</td>
+<td>1872</td>
+<td>1928</td>
+</tr>
+<tr data-publication='LWM'>
+<td><a href="/newspapers/lake-wakatip-mail">Lake Wakatip Mail</a></td>
+<td class='show-for-medium'>Otago</td>
+<td>1863</td>
+<td>1947</td>
+</tr>
+<tr data-publication='LTCBG'>
+<td><a href="/newspapers/lyell-times-and-central-buller-gazette">Lyell Times and Central Buller Gazette</a></td>
+<td class='show-for-medium'>West Coast</td>
+<td>1885</td>
+<td>1886</td>
+</tr>
+<tr data-publication='LT'>
+<td><a href="/newspapers/lyttelton-times">Lyttelton Times</a></td>
+<td class='show-for-medium'>Canterbury</td>
+<td>1851</td>
+<td>1914</td>
+</tr>
+<tr data-publication='MH'>
+<td><a href="/newspapers/manawatu-herald">Manawatu Herald</a></td>
+<td class='show-for-medium'>Manawatu-Wanganui</td>
+<td>1878</td>
+<td>1920</td>
+</tr>
+<tr data-publication='MS'>
+<td><a href="/newspapers/manawatu-standard">Manawatu Standard</a></td>
+<td class='show-for-medium'>Manawatu-Wanganui</td>
+<td>1883</td>
+<td>1923</td>
+</tr>
+<tr data-publication='MT'>
+<td><a href="/newspapers/manawatu-times">Manawatu Times</a></td>
+<td class='show-for-medium'>Manawatu-Wanganui</td>
+<td>1877</td>
+<td>1928</td>
+</tr>
+<tr data-publication='MMTKM'>
+<td><a href="/newspapers/maori-messenger-te-karere-maori">Maori Messenger : Te Karere Maori</a></td>
+<td class='show-for-medium'>National</td>
+<td>1842</td>
+<td>1863</td>
+</tr>
+<tr data-publication='MW'>
+<td><a href="/newspapers/maoriland-worker">Maoriland Worker</a></td>
+<td class='show-for-medium'>National</td>
+<td>1910</td>
+<td>1924</td>
+</tr>
+<tr data-publication='MKURA'>
+<td><a href="/newspapers/mareikura">Mareikura</a></td>
+<td class='show-for-medium'>Wellington</td>
+<td>1911</td>
+<td>1913</td>
+</tr>
+<tr data-publication='MEX'>
+<td><a href="/newspapers/marlborough-express">Marlborough Express</a></td>
+<td class='show-for-medium'>Marlborough</td>
+<td>1868</td>
+<td>1920</td>
+</tr>
+<tr data-publication='MATREC'>
+<td><a href="/newspapers/matamata-record">Matamata Record</a></td>
+<td class='show-for-medium'>Waikato</td>
+<td>1918</td>
+<td>1924</td>
+</tr>
+<tr data-publication='MATAR'>
+<td><a href="/newspapers/matariki">Matariki</a></td>
+<td class='show-for-medium'>Gisborne</td>
+<td>1881</td>
+<td>1881</td>
+</tr>
+<tr data-publication='ME'>
+<td><a href="/newspapers/mataura-ensign">Mataura Ensign</a></td>
+<td class='show-for-medium'>Otago</td>
+<td>1883</td>
+<td>1920</td>
+</tr>
+<tr data-publication='MATUH'>
+<td><a href="/newspapers/matuhi">Matuhi</a></td>
+<td class='show-for-medium'>Wellington</td>
+<td>1903</td>
+<td>1906</td>
+</tr>
+<tr data-publication='MOST'>
+<td><a href="/newspapers/motueka-star">Motueka Star</a></td>
+<td class='show-for-medium'>Nelson</td>
+<td>1901</td>
+<td>1938</td>
+</tr>
+<tr data-publication='MIC'>
+<td><a href="/newspapers/mount-ida-chronicle">Mount Ida Chronicle</a></td>
+<td class='show-for-medium'>Otago</td>
+<td>1869</td>
+<td>1926</td>
+</tr>
+<tr data-publication='MTBM'>
+<td><a href="/newspapers/mt-benger-mail">Mt Benger Mail</a></td>
+<td class='show-for-medium'>Otago</td>
+<td>1881</td>
+<td>1941</td>
+</tr>
+<tr data-publication='NEM'>
+<td><a href="/newspapers/nelson-evening-mail">Nelson Evening Mail</a></td>
+<td class='show-for-medium'>Nelson</td>
+<td>1866</td>
+<td>1922</td>
+</tr>
+<tr data-publication='NENZC'>
+<td><a href="/newspapers/nelson-examiner-and-new-zealand-chronicle">Nelson Examiner and New Zealand Chronicle</a></td>
+<td class='show-for-medium'>Nelson</td>
+<td>1842</td>
+<td>1874</td>
+</tr>
+<tr data-publication='NZABIG'>
+<td><a href="/newspapers/new-zealand-advertiser-and-bay-of-islands-gazette">New Zealand Advertiser and Bay of Islands Gazette</a></td>
+<td class='show-for-medium'>Northland</td>
+<td>1840</td>
+<td>1840</td>
+</tr>
+<tr data-publication='NZCPNA'>
+<td><a href="/newspapers/new-zealand-colonist-and-port-nicholson-advertiser">New Zealand Colonist and Port Nicholson Advertiser</a></td>
+<td class='show-for-medium'>Wellington</td>
+<td>1842</td>
+<td>1843</td>
+</tr>
+<tr data-publication='NZGWS'>
+<td><a href="/newspapers/new-zealand-gazette-and-wellington-spectator">New Zealand Gazette and Wellington Spectator</a></td>
+<td class='show-for-medium'>Wellington</td>
+<td>1839</td>
+<td>1844</td>
+</tr>
+<tr data-publication='NZH'>
+<td><a href="/newspapers/new-zealand-herald">New Zealand Herald</a></td>
+<td class='show-for-medium'>Auckland</td>
+<td>1863</td>
+<td>1945</td>
+</tr>
+<tr data-publication='NZHAG'>
+<td><a href="/newspapers/new-zealand-herald-and-auckland-gazette">New Zealand Herald and Auckland Gazette</a></td>
+<td class='show-for-medium'>Auckland</td>
+<td>1841</td>
+<td>1842</td>
+</tr>
+<tr data-publication='NZMAIL'>
+<td><a href="/newspapers/new-zealand-mail">New Zealand Mail</a></td>
+<td class='show-for-medium'>Wellington</td>
+<td>1871</td>
+<td>1907</td>
+</tr>
+<tr data-publication='NZSCSG'>
+<td><a href="/newspapers/new-zealand-spectator-and-cook-s-strait-guardian">New Zealand Spectator and Cook&#39;s Strait Guardian</a></td>
+<td class='show-for-medium'>Wellington</td>
+<td>1844</td>
+<td>1865</td>
+</tr>
+<tr data-publication='NZTIM'>
+<td><a href="/newspapers/new-zealand-times">New Zealand Times</a></td>
+<td class='show-for-medium'>Wellington</td>
+<td>1874</td>
+<td>1920</td>
+</tr>
+<tr data-publication='NZ'>
+<td><a href="/newspapers/new-zealander">New Zealander</a></td>
+<td class='show-for-medium'>Auckland</td>
+<td>1845</td>
+<td>1866</td>
+</tr>
+<tr data-publication='NCGAZ'>
+<td><a href="/newspapers/north-canterbury-gazette">North Canterbury Gazette</a></td>
+<td class='show-for-medium'>Canterbury</td>
+<td>1932</td>
+<td>1939</td>
+</tr>
+<tr data-publication='NOT'>
+<td><a href="/newspapers/north-otago-times">North Otago Times</a></td>
+<td class='show-for-medium'>Otago</td>
+<td>1864</td>
+<td>1918</td>
+</tr>
+<tr data-publication='NA'>
+<td><a href="/newspapers/northern-advocate">Northern Advocate</a></td>
+<td class='show-for-medium'>Northland</td>
+<td>1887</td>
+<td>1945</td>
+</tr>
+<tr data-publication='NZTR'>
+<td><a href="/newspapers/nz-truth">NZ Truth</a></td>
+<td class='show-for-medium'>National</td>
+<td>1906</td>
+<td>1930</td>
+</tr>
+<tr data-publication='OAM'>
+<td><a href="/newspapers/oamaru-mail">Oamaru Mail</a></td>
+<td class='show-for-medium'>Otago</td>
+<td>1876</td>
+<td>1920</td>
+</tr>
+<tr data-publication='TO'>
+<td><a href="/newspapers/observer">Observer</a></td>
+<td class='show-for-medium'>Auckland</td>
+<td>1880</td>
+<td>1920</td>
+</tr>
+<tr data-publication='OG'>
+<td><a href="/newspapers/ohinemuri-gazette">Ohinemuri Gazette</a></td>
+<td class='show-for-medium'>Waikato</td>
+<td>1891</td>
+<td>1921</td>
+</tr>
+<tr data-publication='OPUNT'>
+<td><a href="/newspapers/opunake-times">Opunake Times</a></td>
+<td class='show-for-medium'>Taranaki</td>
+<td>1894</td>
+<td>1949</td>
+</tr>
+<tr data-publication='ODT'>
+<td><a href="/newspapers/otago-daily-times">Otago Daily Times</a></td>
+<td class='show-for-medium'>Otago</td>
+<td>1861</td>
+<td>1950</td>
+</tr>
+<tr data-publication='OW'>
+<td><a href="/newspapers/otago-witness">Otago Witness</a></td>
+<td class='show-for-medium'>Otago</td>
+<td>1851</td>
+<td>1920</td>
+</tr>
+<tr data-publication='OTMAIL'>
+<td><a href="/newspapers/otaki-mail">Otaki Mail</a></td>
+<td class='show-for-medium'>Wellington</td>
+<td>1919</td>
+<td>1943</td>
+</tr>
+<tr data-publication='OSWCC'>
+<td><a href="/newspapers/otautau-standard-and-wallace-county-chronicle">Otautau Standard and Wallace County Chronicle</a></td>
+<td class='show-for-medium'>Otago</td>
+<td>1905</td>
+<td>1932</td>
+</tr>
+<tr data-publication='OO'>
+<td><a href="/newspapers/oxford-observer">Oxford Observer</a></td>
+<td class='show-for-medium'>Canterbury</td>
+<td>1889</td>
+<td>1901</td>
+</tr>
+<tr data-publication='PAKIOM'>
+<td><a href="/newspapers/paki-o-matariki">Paki o Matariki</a></td>
+<td class='show-for-medium'>Waikato</td>
+<td>1892</td>
+<td>1935</td>
+</tr>
+<tr data-publication='PATM'>
+<td><a href="/newspapers/patea-mail">Patea Mail</a></td>
+<td class='show-for-medium'>Taranaki</td>
+<td>1875</td>
+<td>1941</td>
+</tr>
+<tr data-publication='PGAMA'>
+<td><a href="/newspapers/pelorus-guardian-and-miners-advocate">Pelorus Guardian and Miners&#39; Advocate.</a></td>
+<td class='show-for-medium'>Marlborough</td>
+<td>1890</td>
+<td>1919</td>
+</tr>
+<tr data-publication='PIHOI'>
+<td><a href="/newspapers/pihoihoi-mokemoke-i-runga-i-te-tuanui">Pihoihoi Mokemoke i Runga i te Tuanui</a></td>
+<td class='show-for-medium'>National</td>
+<td>1863</td>
+<td>1863</td>
+</tr>
+<tr data-publication='PBH'>
+<td><a href="/newspapers/poverty-bay-herald">Poverty Bay Herald</a></td>
+<td class='show-for-medium'>Gisborne</td>
+<td>1879</td>
+<td>1939</td>
+</tr>
+<tr data-publication='CHP'>
+<td><a href="/newspapers/press">Press</a></td>
+<td class='show-for-medium'>Canterbury</td>
+<td>1861</td>
+<td>1945</td>
+</tr>
+<tr data-publication='PUKEH'>
+<td><a href="/newspapers/puke-ki-hikurangi">Puke ki Hikurangi</a></td>
+<td class='show-for-medium'>Wellington</td>
+<td>1897</td>
+<td>1913</td>
+</tr>
+<tr data-publication='PWT'>
+<td><a href="/newspapers/pukekohe-waiuku-times">Pukekohe &amp; Waiuku Times</a></td>
+<td class='show-for-medium'>Auckland</td>
+<td>1912</td>
+<td>1924</td>
+</tr>
+<tr data-publication='RAMA'>
+<td><a href="/newspapers/rangitikei-advocate-and-manawatu-argus">Rangitikei Advocate and Manawatu Argus</a></td>
+<td class='show-for-medium'>Manawatu-Wanganui</td>
+<td>1907</td>
+<td>1920</td>
+</tr>
+<tr data-publication='ROTWKG'>
+<td><a href="/newspapers/rodney-and-otamatea-times-waitemata-and-kaipara-gazette">Rodney and Otamatea Times, Waitemata and Kaipara Gazette</a></td>
+<td class='show-for-medium'>Auckland</td>
+<td>1901</td>
+<td>1945</td>
+</tr>
+<tr data-publication='STSSA'>
+<td><a href="/newspapers/samoa-times-and-south-sea-advertiser">Samoa Times and South Sea Advertiser</a></td>
+<td class='show-for-medium'>Samoa</td>
+<td>1888</td>
+<td>1896</td>
+</tr>
+<tr data-publication='STSSG'>
+<td><a href="/newspapers/samoa-times-and-south-sea-gazette">Samoa Times and South Sea Gazette</a></td>
+<td class='show-for-medium'>Samoa</td>
+<td>1877</td>
+<td>1881</td>
+</tr>
+<tr data-publication='SWH'>
+<td><a href="/newspapers/samoa-weekly-herald">Samoa Weekly Herald</a></td>
+<td class='show-for-medium'>Samoa</td>
+<td>1892</td>
+<td>1900</td>
+</tr>
+<tr data-publication='SAMZ'>
+<td><a href="/newspapers/samoanische-zeitung">Samoanische Zeitung</a></td>
+<td class='show-for-medium'>Samoa</td>
+<td>1903</td>
+<td>1930</td>
+</tr>
+<tr data-publication='SCANT'>
+<td><a href="/newspapers/south-canterbury-times">South Canterbury Times</a></td>
+<td class='show-for-medium'>Canterbury</td>
+<td>1879</td>
+<td>1901</td>
+</tr>
+<tr data-publication='SOCR'>
+<td><a href="/newspapers/southern-cross">Southern Cross</a></td>
+<td class='show-for-medium'>Otago</td>
+<td>1893</td>
+<td>1920</td>
+</tr>
+<tr data-publication='ST'>
+<td><a href="/newspapers/southland-times">Southland Times</a></td>
+<td class='show-for-medium'>Otago</td>
+<td>1862</td>
+<td>1920</td>
+</tr>
+<tr data-publication='TS'>
+<td><a href="/newspapers/star">Star</a></td>
+<td class='show-for-medium'>Canterbury</td>
+<td>1868</td>
+<td>1920</td>
+</tr>
+<tr data-publication='STEP'>
+<td><a href="/newspapers/stratford-evening-post">Stratford Evening Post</a></td>
+<td class='show-for-medium'>Taranaki</td>
+<td>1911</td>
+<td>1936</td>
+</tr>
+<tr data-publication='SUNCH'>
+<td><a href="/newspapers/sun">Sun</a></td>
+<td class='show-for-medium'>Canterbury</td>
+<td>1914</td>
+<td>1920</td>
+</tr>
+<tr data-publication='TAIDT'>
+<td><a href="/newspapers/taihape-daily-times">Taihape Daily Times</a></td>
+<td class='show-for-medium'>Manawatu-Wanganui</td>
+<td>1914</td>
+<td>1920</td>
+</tr>
+<tr data-publication='TAKIT'>
+<td><a href="/newspapers/takitimu">Takitimu</a></td>
+<td class='show-for-medium'>Gisborne</td>
+<td>1883</td>
+<td>1883</td>
+</tr>
+<tr data-publication='TDN'>
+<td><a href="/newspapers/taranaki-daily-news">Taranaki Daily News</a></td>
+<td class='show-for-medium'>Taranaki</td>
+<td>1900</td>
+<td>1920</td>
+</tr>
+<tr data-publication='TH'>
+<td><a href="/newspapers/taranaki-herald">Taranaki Herald</a></td>
+<td class='show-for-medium'>Taranaki</td>
+<td>1852</td>
+<td>1920</td>
+</tr>
+<tr data-publication='TAN'>
+<td><a href="/newspapers/te-aroha-news">Te Aroha News</a></td>
+<td class='show-for-medium'>Waikato</td>
+<td>1883</td>
+<td>1925</td>
+</tr>
+<tr data-publication='TPT'>
+<td><a href="/newspapers/te-puke-times">Te Puke Times</a></td>
+<td class='show-for-medium'>Bay of Plenty</td>
+<td>1913</td>
+<td>1920</td>
+</tr>
+<tr data-publication='TEML'>
+<td><a href="/newspapers/temuka-leader">Temuka Leader</a></td>
+<td class='show-for-medium'>Canterbury</td>
+<td>1878</td>
+<td>1932</td>
+</tr>
+<tr data-publication='THA'>
+<td><a href="/newspapers/thames-advertiser">Thames Advertiser</a></td>
+<td class='show-for-medium'>Waikato</td>
+<td>1874</td>
+<td>1899</td>
+</tr>
+<tr data-publication='TGMR'>
+<td><a href="/newspapers/thames-guardian-and-mining-record">Thames Guardian and Mining Record</a></td>
+<td class='show-for-medium'>Waikato</td>
+<td>1871</td>
+<td>1872</td>
+</tr>
+<tr data-publication='THS'>
+<td><a href="/newspapers/thames-star">Thames Star</a></td>
+<td class='show-for-medium'>Waikato</td>
+<td>1874</td>
+<td>1920</td>
+</tr>
+<tr data-publication='THD'>
+<td><a href="/newspapers/timaru-herald">Timaru Herald</a></td>
+<td class='show-for-medium'>Canterbury</td>
+<td>1864</td>
+<td>1920</td>
+</tr>
+<tr data-publication='TT'>
+<td><a href="/newspapers/tuapeka-times">Tuapeka Times</a></td>
+<td class='show-for-medium'>Otago</td>
+<td>1868</td>
+<td>1920</td>
+</tr>
+<tr data-publication='UHWR'>
+<td><a href="/newspapers/upper-hutt-weekly-review">Upper Hutt Weekly Review</a></td>
+<td class='show-for-medium'>Wellington</td>
+<td>1935</td>
+<td>1939</td>
+</tr>
+<tr data-publication='VT'>
+<td><a href="/newspapers/victoria-times">Victoria Times</a></td>
+<td class='show-for-medium'>Wellington</td>
+<td>1841</td>
+<td>1841</td>
+</tr>
+<tr data-publication='WHDT'>
+<td><a href="/newspapers/waihi-daily-telegraph">Waihi Daily Telegraph</a></td>
+<td class='show-for-medium'>Waikato</td>
+<td>1904</td>
+<td>1944</td>
+</tr>
+<tr data-publication='WAIGUS'>
+<td><a href="/newspapers/waikato-argus">Waikato Argus</a></td>
+<td class='show-for-medium'>Waikato</td>
+<td>1896</td>
+<td>1914</td>
+</tr>
+<tr data-publication='WAIKIN'>
+<td><a href="/newspapers/waikato-independent">Waikato Independent</a></td>
+<td class='show-for-medium'>Waikato</td>
+<td>1904</td>
+<td>1949</td>
+</tr>
+<tr data-publication='WT'>
+<td><a href="/newspapers/waikato-times">Waikato Times</a></td>
+<td class='show-for-medium'>Waikato</td>
+<td>1872</td>
+<td>1921</td>
+</tr>
+<tr data-publication='WDA'>
+<td><a href="/newspapers/waimate-daily-advertiser">Waimate Daily Advertiser</a></td>
+<td class='show-for-medium'>Canterbury</td>
+<td>1898</td>
+<td>1919</td>
+</tr>
+<tr data-publication='WAG'>
+<td><a href="/newspapers/wairarapa-age">Wairarapa Age</a></td>
+<td class='show-for-medium'>Wellington</td>
+<td>1906</td>
+<td>1920</td>
+</tr>
+<tr data-publication='WDT'>
+<td><a href="/newspapers/wairarapa-daily-times">Wairarapa Daily Times</a></td>
+<td class='show-for-medium'>Wellington</td>
+<td>1879</td>
+<td>1919</td>
+</tr>
+<tr data-publication='WAIST'>
+<td><a href="/newspapers/wairarapa-standard">Wairarapa Standard</a></td>
+<td class='show-for-medium'>Wellington</td>
+<td>1867</td>
+<td>1887</td>
+</tr>
+<tr data-publication='WAKAM'>
+<td><a href="/newspapers/waka-maori">Waka Maori</a></td>
+<td class='show-for-medium'>National</td>
+<td>1863</td>
+<td>1884</td>
+</tr>
+<tr data-publication='WANANG'>
+<td><a href="/newspapers/wananga">Wananga</a></td>
+<td class='show-for-medium'>National</td>
+<td>1874</td>
+<td>1878</td>
+</tr>
+<tr data-publication='WC'>
+<td><a href="/newspapers/wanganui-chronicle">Wanganui Chronicle</a></td>
+<td class='show-for-medium'>Manawatu-Wanganui</td>
+<td>1874</td>
+<td>1919</td>
+</tr>
+<tr data-publication='WH'>
+<td><a href="/newspapers/wanganui-herald">Wanganui Herald</a></td>
+<td class='show-for-medium'>Manawatu-Wanganui</td>
+<td>1867</td>
+<td>1920</td>
+</tr>
+<tr data-publication='WI'>
+<td><a href="/newspapers/wellington-independent">Wellington Independent</a></td>
+<td class='show-for-medium'>Wellington</td>
+<td>1845</td>
+<td>1874</td>
+</tr>
+<tr data-publication='WCT'>
+<td><a href="/newspapers/west-coast-times">West Coast Times</a></td>
+<td class='show-for-medium'>West Coast</td>
+<td>1865</td>
+<td>1916</td>
+</tr>
+<tr data-publication='WSTAR'>
+<td><a href="/newspapers/western-star">Western Star</a></td>
+<td class='show-for-medium'>Otago</td>
+<td>1873</td>
+<td>1920</td>
+</tr>
+<tr data-publication='WEST'>
+<td><a href="/newspapers/westport-times">Westport Times</a></td>
+<td class='show-for-medium'>West Coast</td>
+<td>1868</td>
+<td>1886</td>
+</tr>
+<tr data-publication='WHETU'>
+<td><a href="/newspapers/whetu-o-te-tau">Whetu o te Tau</a></td>
+<td class='show-for-medium'>National</td>
+<td>1857</td>
+<td>1858</td>
+</tr>
+<tr data-publication='WOODEX'>
+<td><a href="/newspapers/woodville-examiner">Woodville Examiner</a></td>
+<td class='show-for-medium'>Manawatu-Wanganui</td>
+<td>1883</td>
+<td>1920</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<footer>
+<div class='grid-container'>
+<nav>
+<ul class='menu grid-x show-for-medium'>
+<li class='cell auto'><a href="/sitemap">Site map</a></li>
+<li class='cell auto'><a href="/accessibility">Accessibility</a></li>
+<li class='cell auto'><a href="/collaborative">Collaborative digitisation</a></li>
+<li class='cell auto'><a href="/terms">Terms and conditions</a></li>
+<li class='cell auto'><a href="/contact">Contact us</a></li>
+</ul>
+<ul class='menu grid-x show-for-small-only'>
+<li class='cell small-6'><a href="/sitemap">Site map</a></li>
+<li class='cell small-6'><a href="/accessibility">Accessibility</a></li>
+<li class='cell small-6'><a href="/collaborative">Collaborative digitisation</a></li>
+<li class='cell small-6'><a href="/terms">Terms and conditions</a></li>
+<li class='cell small-6'><a href="/contact">Contact us</a></li>
+</ul>
+</nav>
+<div class='grid-x grid-margin-x'>
+<div class='cell small-6 large-4 large-offset-2'>
+<a href='http://natlib.govt.nz' title='National Library of New Zealand'>
+<img alt="National Library of New Zealand" class="footer-logo-natlib" src="/assets/footer_logo_natlib-093a99f21f5a37c33d4e9fb3b07ec251e56b3531171d69a2991a10aac3468a0c.png" />
+</a>
+</div>
+<div class='cell small-6 large-4'>
+<a href='https://www.govt.nz/' title='newzealand.govt.nz'>
+<img alt="newzealand.govt.nz" class="footer-logo-nz" src="/assets/footer_logo_nzgovt-946715a032c6438af8e4158161ca8e9ca799310b7af94fca08efe33115a56d04.png" />
+</a>
+</div>
+</div>
+</div>
+</footer>
+
+</div>
+<div aria-hidden class='loading-spinner text-center hide'>
+<div class='fa fa-spinner fa-pulse fa-3x'></div>
+<p><span class="translation_missing" title="translation missing: en.working">Working</span></p>
+</div>
+
+</body>
+<div class='js'>
+<script src="/assets/application-ff57cb251de036d456fe1d422740aa6bdcf66a7667010b865ef235b3ec124240.js"></script>
+<script src="/packs/application-feb4c06d441fb705ac85.js"></script>
+<meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="uWD0ba5HsfHawKV/UIvmzeA5gLyi0JidmxpSSXRm0cRIhD1y397IH+eH9j/TNOurJO8x3gcF/Vyz9619nVMj4w==" />
+
+</div>
+</html>
