@@ -1,6 +1,5 @@
-# papers-past-topic-modeling
----
 # Topic Modeling on Historical Newspapers of New Zealand
+
+#### A UC MADS Data601 Project
 ---
-A UC MADS Data601 Project
----
+
