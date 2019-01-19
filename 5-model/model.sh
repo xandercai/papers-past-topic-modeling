@@ -53,7 +53,7 @@ TOPICS=250
 #  The number of iterations of Gibbs sampling.
 #  Default is 1000
 #ITERATION=500
-ITERATION=2000
+ITERATION=3000
 #ITERATION=200
 
 #--optimize-interval INTEGER
@@ -119,7 +119,7 @@ echo $( date +%T )' :: Imported.'
 
 
 # Prune model
-if [ ! -f $OUTPUT/import.model ]
+if [ ! -f $OUTPUT/prune.model ]
 then
     echo $( date +%T)' :: Start prune model...'
     mallet prune --input $OUTPUT/import.model \
@@ -139,7 +139,7 @@ echo $( date +%T )' :: Pruned.'
 if [ $PROCESS == 'train' ]
 then
     echo $( date +%T )' :: Start training dataset...'
-    mallet train-topics --input $OUTPUT/purned.model \
+    mallet train-topics --input $OUTPUT/pruned.model \
                         --num-topics $TOPICS \
                         --optimize-interval $INTERVAL \
                         --optimize-burn-in $BURNIN \
@@ -152,8 +152,9 @@ then
                         --num-top-words 10 \
                         --diagnostics-file $OUTPUT/diagnostics.xml \
                         --output-state $OUTPUT/state.gz \
-                        --topic-word-weights-file $OUTPUT/topicWordWeigts.txt \
                         --inferencer-filename $OUTPUT/inferencer.model
+                        #--topic-word-weights-file $OUTPUT/topicWordWeigts.txt \
+
     echo $( date +%T )' :: Trained.'
 fi
 
