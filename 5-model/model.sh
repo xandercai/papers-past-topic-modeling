@@ -23,7 +23,7 @@ echo 'OutputDir='$OUTPUT
 echo 'Process='$PROCESS
 if [ $PROCESS == 'infer' ]
 then
-    ALL='./model_all'
+    ALL='./model_train'
     INFER=$ALL'/inferencer.model'
     echo 'AllDir='$ALL
     echo 'Inferencer'=$INFER
@@ -46,7 +46,8 @@ SEED2=1
 #--num-top-docs INTEGER
 #  When writing topic documents with --output-topic-docs, report this number of top documents.
 #  Default is 100
-TOPICS=500
+TOPICS=250
+#TOPICS=500
 
 #--num-iterations INTEGER
 #  The number of iterations of Gibbs sampling.
@@ -67,38 +68,46 @@ INTERVAL=40
 BURNIN=300
 #BURNIN=20
 
+CORES=6
+IDFMIN=1
+IDFMAX=10
+
+echo 'CORES'=$CORES
 echo 'SEED1='$SEED1
 echo 'SEED2='$SEED2
 echo 'TOPICS='$TOPICS
 echo 'ITERATION='$ITERATION
 echo 'INTERVAL='$INTERVAL
 echo 'BURNIN='$BURNIN
+echo 'IDFMIN='$IDFMIN
+echo 'IDFMAX='$IDFMAX
 
 
-# Import corpus
+# Import corpora
 echo $( date +%T)' :: Start import dataset...'
 if [ ! -f $OUTPUT/import.model ]
 then
     if [ $PROCESS == 'train' ]
     then
-    #    mallet import-file --input $INPUT \
-    #                       --output $OUTPUT/import.model \
-    #                       --label 0 \
-    #                       --remove-stopwords \
-    #                       --keep-sequence
-    #                       #--keep-sequence-bigrams
-    #                       #--token-regex '\p{L}[\p{L}\p{P}]+\p{L}'
-    #                       #--token-regex '\p{L}[\p{L}\p{P}]\p{L}+' \
-    #                       #--token-regex '[a-zA-Z]{4,15}'
+        mallet import-file --input $INPUT \
+                           --output $OUTPUT/import.model \
+                           --label 0 \
+                           --remove-stopwords \
+                           --keep-sequence-bigrams
+                           #--keep-sequence
+                           #--token-regex '\p{L}[\p{L}\p{P}]\p{L}+' \
+                           #--token-regex '\p{L}[\p{L}\p{P}]+\p{L}'
+                           #--token-regex '[a-zA-Z]{4,15}'
         echo 'Import new data for training.'
     elif [ $PROCESS == 'infer' ]
     then
-    #    mallet import-file --input $INPUT \
-    #                       --output $OUTPUT/import.model \
-    #                       --use-pipe-from $ALL/import.model \
-    #                       --label 0 \
-    #                       --remove-stopwords \
-    #                       --keep-sequence
+        mallet import-file --input $INPUT \
+                           --output $OUTPUT/import.model \
+                           --use-pipe-from $ALL/import.model \
+                           --label 0 \
+                           --remove-stopwords \
+                           --keep-sequence-bigrams
+                           #--keep-sequence
         echo 'Import new data for inferring.'
     else
         echo 'Error Process'
@@ -109,37 +118,54 @@ fi
 echo $( date +%T )' :: Imported.'
 
 
+# Prune model
+if [ ! -f $OUTPUT/import.model ]
+then
+    echo $( date +%T)' :: Start prune model...'
+    mallet prune --input $OUTPUT/import.model \
+                 --output $OUTPUT/pruned.model \
+                 --min-idf $IDFMIN \
+                 --max-idf $IDFMAX \
+                 --random-seed $SEED1
+else
+    echo 'Pruned model already exist, nothing to do.'
+fi
+
+echo $( date +%T )' :: Pruned.'
+
+
+
 # Train model
 if [ $PROCESS == 'train' ]
 then
     echo $( date +%T )' :: Start training dataset...'
-    #mallet train-topics --input $OUTPUT/import.model \
-    #                    --num-topics $TOPICS \
-    #                    --optimize-interval $INTERVAL \
-    #                    --optimize-burn-in $BURNIN \
-    #                    --random-seed $SEED1 \
-    #                    --num-threads 8 \
-    #                    --num-iterations $ITERATION \
-    #                    --output-model $OUTPUT/lda.model \
-    #                    --output-doc-topics $OUTPUT/docTopics.txt \
-    #                    --output-topic-keys $OUTPUT/topicKeys.txt \
-    #                    --num-top-words 10 \
-    #                    --diagnostics-file $OUTPUT/diagnostics.xml \
-    #                    --output-state $OUTPUT/state.gz \
-    #                    --inferencer-filename $OUTPUT/inferencer.model
-    #                    #--topic-word-weights-file $OUTPUT/topicWordWeigts.txt \
+    mallet train-topics --input $OUTPUT/purned.model \
+                        --num-topics $TOPICS \
+                        --optimize-interval $INTERVAL \
+                        --optimize-burn-in $BURNIN \
+                        --random-seed $SEED1 \
+                        --num-threads $CORES \
+                        --num-iterations $ITERATION \
+                        --output-model $OUTPUT/lda.model \
+                        --output-doc-topics $OUTPUT/docTopics.txt \
+                        --output-topic-keys $OUTPUT/topicKeys.txt \
+                        --num-top-words 10 \
+                        --diagnostics-file $OUTPUT/diagnostics.xml \
+                        --output-state $OUTPUT/state.gz \
+                        --topic-word-weights-file $OUTPUT/topicWordWeigts.txt \
+                        --inferencer-filename $OUTPUT/inferencer.model
     echo $( date +%T )' :: Trained.'
 fi
+
 
 
 # Infer topics
 if [ $PROCESS == 'infer' ]
 then
     echo $( date +%T )' :: Start infering dataset...'
-    #mallet infer-topics --inferencer $INFER \
-    #                    --input $OUTPUT/import.model \
-    #                    --random-seed $SEED2 \
-    #                    --output-doc-topics $OUTPUT/docTopicsInfer.txt
+    mallet infer-topics --inferencer $INFER \
+                        --input $OUTPUT/pruned.model \
+                        --random-seed $SEED2 \
+                        --output-doc-topics $OUTPUT/docTopicsInfer.txt
     echo $( date +%T )' :: Inferred.'
 fi
-
