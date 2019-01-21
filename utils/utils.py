@@ -4,6 +4,7 @@ data.py
 This module provide data loading functions using PySpark
 '''
 
+import os
 from pprint import pprint
 
 import findspark
@@ -13,50 +14,6 @@ from pyspark.sql import functions as F
 from pyspark.sql.types import *
 from pyspark.sql.session import SparkSession
 
-#https://stackoverflow.com/questions/40428931/package-for-listing-version-of-packages-used-in-a-jupyter-notebook
-import pkg_resources
-import types
-import IPython
-def get_imports():
-    for name, val in globals().items():
-        if isinstance(val, types.ModuleType):
-            # Split ensures you get root package,
-            # not just imported function
-            name = val.__name__.split(".")[0]
-
-        elif isinstance(val, type):
-            name = val.__module__.split(".")[0]
-
-        # Some packages are weird and have different
-        # imported names vs. system/pip names. Unfortunately,
-        # there is no systematic way to get pip names from
-        # a package's imported name. You'll have to had
-        # exceptions to this list manually!
-        poorly_named_packages = {
-            "PIL": "Pillow",
-            "sklearn": "scikit-learn"
-        }
-        if name in poorly_named_packages.keys():
-            name = poorly_named_packages[name]
-
-        yield name
-
-def print_info():
-    imports = list(set(get_imports()))
-
-    # The only way I found to get the version of the root package
-    # from only the name of the package is to cross-check the names
-    # of installed packages vs. imported packages
-    requirements = []
-    for m in pkg_resources.working_set:
-        if m.project_name in imports and m.project_name!="pip":
-            requirements.append((m.project_name, m.version))
-
-    print ('***System Info***\n', IPython.sys_info())
-
-    print('\n***Package Info***')
-    for r in requirements:
-        print("{}=={}".format(*r))
 
 
 #https://stackoverflow.com/questions/2104080/how-to-check-file-size-in-python
@@ -69,7 +26,6 @@ def convert_bytes(num):
             return "%3.1f %s" % (num, x)
         num /= 1024.0
 
-import os
 def file_size(file_path):
     """
     this function will return the file size
