@@ -25,7 +25,8 @@ def search_dominant(df):
     argmax_udf = lambda cols: F.udf(lambda *args: argmax(cols, *args), StringType())
     return (df
             .withColumn('dominant',argmax_udf(df.columns[2:])(*df.columns[2:]))
-            .select(F.col('index').alias('index_'), F.col('dominant')))
+            .withColumn('weight', F.greatest(*[F.col(x) for x in df.columns[2:-1]]))
+            .select(F.col('index').alias('index_'), F.col('dominant'), F.col('weight')))
 
 
 def load_doctopic(f, n, spark):
@@ -96,6 +97,7 @@ def gen_dominant(df_doctopic, df_topics):
                     F.col('region'),
                     F.col('year'),
                     F.col('dominant'),
+                    F.col('weight'),
                     F.col('words')))
 
 
@@ -109,8 +111,15 @@ def gen_avgweight(df_doctopic):
     '''
     #print('gen_avgweight')
 
-    return (df_doctopic.drop('index').drop('id').drop('dominant').drop('region')
-            .groupBy('year').avg().orderBy('year'))
+    return (df_doctopic
+            .drop('index')
+            .drop('id')
+            .drop('dominant')
+            .drop('region')
+            .drop('weight')
+            .groupBy('year')
+            .avg()
+            .orderBy('year'))
 
 
 
