@@ -91,7 +91,7 @@ def load_dataset(dataset, spark):
     """
 
 
-    if dataset == 'papers_past':
+    if dataset == 'raw':
 
         path = r'../data/papers_past'
 
@@ -113,9 +113,9 @@ def load_dataset(dataset, spark):
             .load(path)
         )
 
-    elif dataset == 'dataset':
+    elif dataset == 'clean':
 
-        path = r'../data/dataset'
+        path = r'../data/dataset/clean'
 
         data_schema = StructType([
             StructField('id', IntegerType()),
@@ -136,18 +136,16 @@ def load_dataset(dataset, spark):
             .orderBy('id')
         )
 
-    elif dataset == 'dev':
+    elif dataset == 'meta':
 
-        path = r'../data/dataset_dev'
+        path = r'../data/dataset/sample/meta'
 
         data_schema = StructType([
             StructField('id', IntegerType()),
             StructField('publisher', StringType()),
             StructField('region', StringType()),
             StructField('date', DateType()),
-            StructField('ads', BooleanType()),
-            StructField('title', StringType()),
-            StructField('content', StringType())
+            StructField('ads', BooleanType())
         ])
 
         df = (

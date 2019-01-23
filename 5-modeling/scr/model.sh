@@ -23,9 +23,9 @@ echo 'OutputDir='$OUTPUT
 echo 'Process='$PROCESS
 if [ $PROCESS == 'infer' ]
 then
-    ALL='./model_train'
-    INFER=$ALL'/inferencer.model'
-    echo 'AllDir='$ALL
+    TRAIN='../models/train'
+    INFER=$TRAIN'/inferencer.model'
+    echo 'TrainDir='$TRAIN
     echo 'Inferencer'=$INFER
 fi
 
@@ -46,14 +46,14 @@ SEED2=1
 #--num-top-docs INTEGER
 #  When writing topic documents with --output-topic-docs, report this number of top documents.
 #  Default is 100
-TOPICS=250
+TOPICS=200
 #TOPICS=500
 
 #--num-iterations INTEGER
 #  The number of iterations of Gibbs sampling.
 #  Default is 1000
 #ITERATION=500
-ITERATION=3000
+ITERATION=2000
 #ITERATION=200
 
 #--optimize-interval INTEGER
@@ -69,7 +69,7 @@ BURNIN=300
 #BURNIN=20
 
 CORES=6
-IDFMIN=1
+IDFMIN=0.5
 IDFMAX=10
 
 echo 'CORES'=$CORES
@@ -93,8 +93,10 @@ then
                            --output $OUTPUT/import.model \
                            --label 0 \
                            --remove-stopwords \
-                           --keep-sequence-bigrams
-                           #--keep-sequence
+                           --replacement-files ./words/replacement.txt \
+                           --extra-stopwords ./words/extraStopwords.txt \
+                           --keep-sequence
+                           #--keep-sequence-bigrams
                            #--token-regex '\p{L}[\p{L}\p{P}]\p{L}+' \
                            #--token-regex '\p{L}[\p{L}\p{P}]+\p{L}'
                            #--token-regex '[a-zA-Z]{4,15}'
@@ -103,11 +105,13 @@ then
     then
         mallet import-file --input $INPUT \
                            --output $OUTPUT/import.model \
-                           --use-pipe-from $ALL/import.model \
+                           --use-pipe-from $TRAIN/pruned.model \
                            --label 0 \
                            --remove-stopwords \
-                           --keep-sequence-bigrams
-                           #--keep-sequence
+                           --replacement-files ./words/replacement.txt \
+                           --extra-stopwords ./words/extraStopwords.txt \
+                           --keep-sequence
+                           #--keep-sequence-bigrams
         echo 'Import new data for inferring.'
     else
         echo 'Error Process'
@@ -141,6 +145,7 @@ then
     echo $( date +%T )' :: Start training dataset...'
     mallet train-topics --input $OUTPUT/pruned.model \
                         --num-topics $TOPICS \
+                        --num-top-words 10 \
                         --optimize-interval $INTERVAL \
                         --optimize-burn-in $BURNIN \
                         --random-seed $SEED1 \
@@ -149,7 +154,6 @@ then
                         --output-model $OUTPUT/lda.model \
                         --output-doc-topics $OUTPUT/docTopics.txt \
                         --output-topic-keys $OUTPUT/topicKeys.txt \
-                        --num-top-words 10 \
                         --diagnostics-file $OUTPUT/diagnostics.xml \
                         --output-state $OUTPUT/state.gz \
                         --inferencer-filename $OUTPUT/inferencer.model
