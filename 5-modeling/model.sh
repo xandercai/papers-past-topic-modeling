@@ -48,7 +48,7 @@ SEED2=1
 #  Default is 100
 TOPICS=200
 
-TOPWORDS=20
+TOPWORDS=10
 
 #--num-iterations INTEGER
 #  The number of iterations of Gibbs sampling.
@@ -70,7 +70,7 @@ BURNIN=300
 #BURNIN=20
 
 CORES=12
-IDFMIN=0
+IDFMIN=0.01
 IDFMAX=8
 
 echo 'CORES'=$CORES
@@ -106,7 +106,7 @@ then
     then
         mallet import-file --input $INPUT \
                            --output $OUTPUT/import.model \
-                           --use-pipe-from $TRAIN/pruned.model \
+                           --use-pipe-from $TRAIN/import.model \
                            --label 0 \
                            --remove-stopwords \
                            --replacement-files ./words/replacement.txt \

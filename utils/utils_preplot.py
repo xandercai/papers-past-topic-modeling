@@ -20,7 +20,6 @@ def add_domtopic(df):
     input: dataframe of weight of each topic
     output: the raw dominant topic number dataframe
     """
-    #print('search_dominant')
 
     argmax_udf = lambda cols: F.udf(lambda *args: argmax(cols, *args), StringType())
     return (df
@@ -89,14 +88,13 @@ def gen_docdomtopic(df_doctopic, df_topics):
     output:
         return processed dominant topics dataframe
     '''
-    #print('gen_dominant')
 
     return (df_doctopic
             .join(df_topics, df_doctopic.domtopic == df_topics.topic)
             .select(F.col('id'),
                     F.col('region'),
                     F.col('year'),
-                    F.col('dominant'),
+                    F.col('domtopic'),
                     F.col('weight'),
                     F.col('words')))
 
@@ -114,7 +112,7 @@ def gen_avgweight(df_doctopic):
     return (df_doctopic
             .drop('index')
             .drop('id')
-            .drop('dominant')
+            .drop('domtopic')
             .drop('region')
             .drop('weight')
             .groupBy('year')
