@@ -14,7 +14,7 @@ def argmax(cols, *args):
     return [c for c, v in zip(cols, args) if v == max(args)][0]
 
 
-def search_dominant(df):
+def add_domtopic(df):
     """
     find the dominant topic of each sample/row/document
     input: dataframe of weight of each topic
@@ -24,9 +24,10 @@ def search_dominant(df):
 
     argmax_udf = lambda cols: F.udf(lambda *args: argmax(cols, *args), StringType())
     return (df
-            .withColumn('dominant',argmax_udf(df.columns[2:])(*df.columns[2:]))
-            .withColumn('weight', F.greatest(*[F.col(x) for x in df.columns[2:-1]]))
-            .select(F.col('index').alias('index_'), F.col('dominant'), F.col('weight')))
+            .withColumn('domtopic',
+                argmax_udf(df.columns[2:])(*df.columns[2:]))
+            .withColumn('weight',
+                F.greatest(*[F.col(x) for x in df.columns[2:-1]])))
 
 
 def load_doctopic(f, n, spark):
@@ -59,27 +60,26 @@ def load_doctopic(f, n, spark):
     return df.toDF(*columns)
 
 
-def add_dominant(df_doctopic, df_dom):
-    #print('add_dominant')
-    # add the dominant topics to doc-topic matrix
-    return (df_doctopic
-            .join(df_dom, df_doctopic.index == df_dom.index_)
-            .drop('index_')
-            .orderBy('index'))
-
-
-def add_metadata(df_doctopic, df_meta):
+def add_metadata(df_doctopic, df_meta, kind):
     #print('add_metadata')
     # add the metadata to doc-topic matrix
+    if kind == 'year':
+        k = 'yyyy'
+    elif kind == 'month':
+        k = 'yyyy-MM'
+    else:
+        print('arg kind:{} is unknown.'.format(kind))
+        return -1
+
     return (df_doctopic
             .join(df_meta, df_doctopic.id == df_meta.id_)
-            .withColumn('year', F.date_format('date', 'yyyy'))
+            .withColumn('year', F.date_format('date', k))
             .drop('id_')
             .drop('date')
             .orderBy('index'))
 
 
-def gen_dominant(df_doctopic, df_topics):
+def gen_docdomtopic(df_doctopic, df_topics):
     '''
     generate dominant topics dataframe,
     add topic words colunm based on df_doctopic.
@@ -92,7 +92,7 @@ def gen_dominant(df_doctopic, df_topics):
     #print('gen_dominant')
 
     return (df_doctopic
-            .join(df_topics, df_doctopic.dominant == df_topics.topic)
+            .join(df_topics, df_doctopic.domtopic == df_topics.topic)
             .select(F.col('id'),
                     F.col('region'),
                     F.col('year'),
@@ -123,7 +123,7 @@ def gen_avgweight(df_doctopic):
 
 
 
-def preplot(f_doctopic, df_meta, df_topics, spark):
+def preplot(f_doctopic, df_meta, df_topics, kind, spark):
     '''
     generate dataframes to plot
     input:
@@ -140,14 +140,12 @@ def preplot(f_doctopic, df_meta, df_topics, spark):
 
     df_doctopic = load_doctopic(f_doctopic, topic_number, spark)
 
-    df_dom = search_dominant(df_doctopic)
+    df_doctopic = add_domtopic(df_doctopic)
 
-    df_doctopic = add_dominant(df_doctopic, df_dom)
+    df_doctopic = add_metadata(df_doctopic, df_meta, kind)
 
-    df_doctopic = add_metadata(df_doctopic, df_meta)
-
-    df_dominant = gen_dominant(df_doctopic, df_topics)
+    df_docdomtopic = gen_docdomtopic(df_doctopic, df_topics)
 
     df_avgweight = gen_avgweight(df_doctopic)
 
-    return df_dominant, df_avgweight
+    return df_docdomtopic, df_avgweight

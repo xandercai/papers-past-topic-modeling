@@ -47,7 +47,8 @@ SEED2=1
 #  When writing topic documents with --output-topic-docs, report this number of top documents.
 #  Default is 100
 TOPICS=200
-#TOPICS=500
+
+TOPWORDS=20
 
 #--num-iterations INTEGER
 #  The number of iterations of Gibbs sampling.
@@ -68,9 +69,9 @@ INTERVAL=40
 BURNIN=300
 #BURNIN=20
 
-CORES=6
-IDFMIN=0.5
-IDFMAX=10
+CORES=12
+IDFMIN=0
+IDFMAX=8
 
 echo 'CORES'=$CORES
 echo 'SEED1='$SEED1
@@ -123,7 +124,7 @@ echo $( date +%T )' :: Imported.'
 
 
 # Prune model
-if [ ! -f $OUTPUT/prune.model ]
+if [ ! -f $OUTPUT/pruned.model ]
 then
     echo $( date +%T)' :: Start prune model...'
     mallet prune --input $OUTPUT/import.model \
@@ -145,7 +146,7 @@ then
     echo $( date +%T )' :: Start training dataset...'
     mallet train-topics --input $OUTPUT/pruned.model \
                         --num-topics $TOPICS \
-                        --num-top-words 10 \
+                        --num-top-words $TOPWORDS \
                         --optimize-interval $INTERVAL \
                         --optimize-burn-in $BURNIN \
                         --random-seed $SEED1 \
