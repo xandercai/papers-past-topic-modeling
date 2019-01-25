@@ -121,11 +121,11 @@ def gen_avgweight(df_doctopic):
 
 
 
-def preplot(f_doctopic, df_meta, df_topics, kind, spark):
+def preplot(df_doctopic, df_meta, df_topics, kind):
     '''
     generate dataframes to plot
     input:
-        f_doctopic: file path with file name
+        df_doctopic: doc topic matrix
         df_meta:  metadata from dataset dataframe.
         df_topics: topic words dataframe.
     return:
@@ -136,7 +136,7 @@ def preplot(f_doctopic, df_meta, df_topics, kind, spark):
 
     topic_number = df_topics.count()
 
-    df_doctopic = load_doctopic(f_doctopic, topic_number, spark)
+    #df_doctopic = load_doctopic(df_doctopic, topic_number, spark)
 
     df_doctopic = add_domtopic(df_doctopic)
 

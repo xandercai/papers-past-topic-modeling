@@ -48,7 +48,7 @@ SEED2=1
 #  Default is 100
 TOPICS=200
 
-TOPWORDS=10
+TOPWORDS=20
 
 #--num-iterations INTEGER
 #  The number of iterations of Gibbs sampling.
@@ -70,7 +70,7 @@ BURNIN=300
 #BURNIN=20
 
 CORES=12
-IDFMIN=0.01
+IDFMIN=0
 IDFMAX=8
 
 echo 'CORES'=$CORES
@@ -156,8 +156,8 @@ then
                         --output-doc-topics $OUTPUT/docTopics.txt \
                         --output-topic-keys $OUTPUT/topicKeys.txt \
                         --diagnostics-file $OUTPUT/diagnostics.xml \
-                        --output-state $OUTPUT/state.gz \
                         --inferencer-filename $OUTPUT/inferencer.model
+                        #--output-state $OUTPUT/state.gz \
                         #--topic-word-weights-file $OUTPUT/topicWordWeigts.txt \
 
     echo $( date +%T )' :: Trained.'
