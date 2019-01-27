@@ -29,9 +29,9 @@ The Papers Past dataset has:
 
 ## Requirement and Setup
 
-To run the notebooks locally, you will need Python3 as well as the libraries recorded in the [requirement.txt](https://github.com/xandercai/papers-past-topic-modeling/blob/master/requirement.txt) file. I recommend managing Python and the libraries using `pip`.
+To run the notebooks locally, you will need Python3 as well as the libraries recorded in the [requirement.txt](https://github.com/xandercai/papers-past-topic-modeling/blob/master/requirement.txt). I recommend managing Python and the libraries using `pip`.
 
-To install, first install `pip`, then you can duplicate the environment for these notebooks by running (in the command line):
+To set it up, first install `pip`, then you can duplicate the environment for these notebooks by running (in the command line):
 
 ```console
 pip install -r /path/to/requirements.txt
