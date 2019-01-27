@@ -20,13 +20,27 @@ We will use the [Mallet](http://mallet.cs.umass.edu/) implementation of the LDA 
 The primary outcome will be a report documenting the methodology, analysis of results and recommendations for NLNZ. Any configuration files or pre-processing scripts should be included as appendices.
 
 
-## Data
+## Dataset
 
 The Papers Past dataset has:
 * total 33 GB,
 * total 68 files,
 * total 16,731,578 documents,
 * each file contains 112 to 3,007,465 documents.
+
+
+## Built With
+
+We used below tools or pacakges in purpose:
+* [jupyterlab](https://github.com/jupyterlab)
+* [spark](https://spark.apache.org/docs/2.4.0/)
+* [mallet](http://mallet.cs.umass.edu/)
+* [pandas](https://pandas.pydata.org/)
+* [matplotlib](https://matplotlib.org/index.html)
+* [seaborn](https://seaborn.pydata.org/)
+* [textblob](https://github.com/sloria/textblob)
+* [wordcloud](https://github.com/amueller/word_cloud)
+
 
 
 ## Setup
@@ -100,4 +114,4 @@ papers-past-topic-modeling
 
 ## Copyright
 
-[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)&nbsp;<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.<br/>See [license.md](https://github.com/xandercai/papers-past-topic-modeling/blob/master/license.md) for details.
+[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)&nbsp;<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/80x15.png" /></a><br /><br/>See [license.md](https://github.com/xandercai/papers-past-topic-modeling/blob/master/license.md) for details.

@@ -1,7 +1,6 @@
 beautifulsoup4==4.7.1
 bs4==0.0.1
 findspark==1.3.0
-ggplot==0.11.5
 ipython==7.2.0
 jupyterlab==0.35.4
 matplotlib==3.0.2
