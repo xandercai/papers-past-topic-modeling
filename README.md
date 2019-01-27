@@ -57,13 +57,13 @@ pip install -r /path/to/requirements.txt
 
 Part | File | Comment
 ---|---|---
-[1-loading](https://github.com/xandercai/papers-past-topic-modeling/tree/master/1-loading) | [1-load.ipynb](https://github.com/xandercai/papers-past-topic-modeling/blob/master/1-loading/1-load.ipynb) | Load and learn the raw dataset situation.<br/>&nbsp;
-[2-wrangling](https://github.com/xandercai/papers-past-topic-modeling/tree/master/2-wrangling) | [1-wrangling.ipynb](https://github.com/xandercai/papers-past-topic-modeling/blob/master/2-wrangling/1-wrangling.ipynb) | Data clean and feature engineering.<br/>&nbsp;
-[3-exploring](https://github.com/xandercai/papers-past-topic-modeling/tree/master/3-exploring) | [1-explore.ipynb](https://github.com/xandercai/papers-past-topic-modeling/blob/master/3-exploring/1-explore.ipynb) | Analyze and visualize the clean dataset.<br/>&nbsp;
+[1-loading](https://github.com/xandercai/papers-past-topic-modeling/tree/master/1-loading) | [1-load.ipynb](https://github.com/xandercai/papers-past-topic-modeling/blob/master/1-loading/1-load.ipynb) | Load and learn the raw dataset situation.
+[2-wrangling](https://github.com/xandercai/papers-past-topic-modeling/tree/master/2-wrangling) | [1-wrangling.ipynb](https://github.com/xandercai/papers-past-topic-modeling/blob/master/2-wrangling/1-wrangling.ipynb) | Data clean and feature engineering.
+[3-exploring](https://github.com/xandercai/papers-past-topic-modeling/tree/master/3-exploring) | [1-explore.ipynb](https://github.com/xandercai/papers-past-topic-modeling/blob/master/3-exploring/1-explore.ipynb) | Analyze and visualize the clean dataset.
 [4-preprocessing](https://github.com/xandercai/papers-past-topic-modeling/tree/master/4-preprocessing) | [1-preprocess.ipynb](https://github.com/xandercai/papers-past-topic-modeling/blob/master/4-preprocessing/1-preprocess.ipynb) | Experiment and discussion about OCR,<br/>spelling correction and other NLP text preprocesses.
-[5-modeling](https://github.com/xandercai/papers-past-topic-modeling/tree/master/5-modeling) | [1-datasets.ipynb](https://github.com/xandercai/papers-past-topic-modeling/blob/master/5-modeling/1-datasets.ipynb) | Split and extract sample set and subsets.<br/>&nbsp;
-&nbsp; | [2-model.ipynb](https://github.com/xandercai/papers-past-topic-modeling/blob/master/5-modeling/2-model.ipynb) | Topic modeling process.<br/>&nbsp;
-[6-analyzing](https://github.com/xandercai/papers-past-topic-modeling/tree/master/6-analyzing) | [1-prepare.ipynb](https://github.com/xandercai/papers-past-topic-modeling/blob/master/6-analyzing/1-prepare.ipynb) | Prepare dataframes for analysis and visualization.<br/>&nbsp;
+[5-modeling](https://github.com/xandercai/papers-past-topic-modeling/tree/master/5-modeling) | [1-datasets.ipynb](https://github.com/xandercai/papers-past-topic-modeling/blob/master/5-modeling/1-datasets.ipynb) | Split and extract sample set and subsets.
+&nbsp; | [2-model.ipynb](https://github.com/xandercai/papers-past-topic-modeling/blob/master/5-modeling/2-model.ipynb) | Topic modeling process.
+[6-analyzing](https://github.com/xandercai/papers-past-topic-modeling/tree/master/6-analyzing) | [1-prepare.ipynb](https://github.com/xandercai/papers-past-topic-modeling/blob/master/6-analyzing/1-prepare.ipynb) | Prepare dataframes for analysis and visualization.
 &nbsp; | [2-analysis-train.ipynb](https://github.com/xandercai/papers-past-topic-modeling/blob/master/6-analyzing/2-analysis-train.ipynb) | Analyze and visualize train set,<br/>which could represent the full dataset.
 &nbsp; | [3-analysis-wwi.ipynb](https://github.com/xandercai/papers-past-topic-modeling/blob/master/6-analyzing/3-analysis-wwi.ipynb) | Analyze and visualize dataset during WWI,<br/>which focus on the topics of different time range.
 &nbsp; | [4-analysis-regions.ipynb](https://github.com/xandercai/papers-past-topic-modeling/blob/master/6-analyzing/4-analysis-regions.ipynb) | Analyze and visualize dataset from specific regions,<br/>which focus on the topics of different region.
@@ -114,4 +114,4 @@ papers-past-topic-modeling
 
 ## Copyright
 
-[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)&nbsp;<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/80x15.png" /></a><br /><br/>See [license.md](https://github.com/xandercai/papers-past-topic-modeling/blob/master/license.md) for details.
+[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)&nbsp;<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/80x15.png" /></a><br/>See [license.md](https://github.com/xandercai/papers-past-topic-modeling/blob/master/license.md) for details.
