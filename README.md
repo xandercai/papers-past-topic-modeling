@@ -3,6 +3,8 @@
 #### A [UC](https://canterbury.ac.nz/) [MADS](https://www.canterbury.ac.nz/study/qualifications-and-courses/masters-degrees/master-of-applied-data-science/) [Data601 Project](https://www.canterbury.ac.nz/courseinfo/GetCourseDetails.aspx?course=DATA601&occurrence=18X(C)&year=2018)
 ---
 
+[![cover](./temp/cover.png)]
+
 
 ## Background
 
@@ -15,7 +17,7 @@
 
 This project will explore different methods of using [LDA](http://www.jmlr.org/papers/volume3/blei03a/blei03a.pdf) topic modelling on the data with the goal of finding a good way of organising Papers Past by topic. It is anticipated that topic models may avoid the problems associated with low-quality OCR and offer better ways for users to explore the collection. 
 
-We will use the [Mallet](http://mallet.cs.umass.edu/) implementation of the LDA algorithm to make recommendations about the best number of topics to include and strategies for improving the model, e.g., identifying 'bad OCR' topics to filter out of the training data set. We will visualise and report on the results over time and by region to give a descriptive overview of Papers Past through the topics. We will also make recommendations about the best ways to present topic model results to users, e.g., number of topics to show, inclusion or exclusion of bigrams.
+We will use the [MALLET](http://mallet.cs.umass.edu/) implementation of the LDA algorithm to make recommendations about the best number of topics to include and strategies for improving the model, e.g., identifying 'bad OCR' topics to filter out of the training data set. We will visualise and report on the results over time and by region to give a descriptive overview of Papers Past through the topics. We will also make recommendations about the best ways to present topic model results to users, e.g., number of topics to show, inclusion or exclusion of bigrams.
 
 The primary outcome will be a report documenting the methodology, analysis of results and recommendations for NLNZ. Any configuration files or pre-processing scripts should be included as appendices.
 
@@ -33,11 +35,12 @@ The Papers Past dataset has:
 
 We used below tools or pacakges in purpose:
 * [jupyterlab](https://github.com/jupyterlab)
-* [spark](https://spark.apache.org/docs/2.4.0/)
 * [mallet](http://mallet.cs.umass.edu/)
-* [pandas](https://pandas.pydata.org/)
 * [matplotlib](https://matplotlib.org/index.html)
+* [pandas](https://pandas.pydata.org/)
 * [seaborn](https://seaborn.pydata.org/)
+* [sklearn](https://scikit-learn.org/stable/)
+* [spark](https://spark.apache.org/docs/2.4.0/)
 * [textblob](https://github.com/sloria/textblob)
 * [wordcloud](https://github.com/amueller/word_cloud)
 
@@ -45,7 +48,7 @@ We used below tools or pacakges in purpose:
 
 ## Setup
 
-To run the notebooks locally, you will need Python3 as well as the libraries recorded in the [requirement.txt](https://github.com/xandercai/papers-past-topic-modeling/blob/master/requirement.txt). I recommend managing Python and the libraries using `pip`.
+To run the notebooks locally, you will need Python3 as well as the libraries recorded in the [requirement.txt](https://github.com/xandercai/papers-past-topic-modeling/blob/master/requirement.txt). We recommend managing Python and the libraries using `pip`.
 
 To set it up, first install `pip`, then you can duplicate the environment for these notebooks by running (in the command line):
 
