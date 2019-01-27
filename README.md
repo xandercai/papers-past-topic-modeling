@@ -24,7 +24,7 @@ The primary outcome will be a report documenting the methodology, analysis of re
 
 ## Dataset
 
-The Papers Past dataset has:
+The Papers Past dataset contains:
 * total 33 GB,
 * total 68 files,
 * total 16,731,578 documents,
