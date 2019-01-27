@@ -1,7 +1,8 @@
 # Topic Modeling on Historical Newspapers of New Zealand
 
-#### A UC MADS Data601 Project
+#### A [UC](https://canterbury.ac.nz/) [MADS](https://www.canterbury.ac.nz/study/qualifications-and-courses/masters-degrees/master-of-applied-data-science/) [Data601 Project](https://www.canterbury.ac.nz/courseinfo/GetCourseDetails.aspx?course=DATA601&occurrence=18X(C)&year=2018)
 ---
+
 
 ## Background
 
@@ -12,9 +13,9 @@
 
 ## Target
 
-This project will explore different methods of using LDA topic modelling on the data with the goal of finding a good way of organising Papers Past by topic. It is anticipated that topic models may avoid the problems associated with low-quality OCR and offer better ways for users to explore the collection. 
+This project will explore different methods of using [LDA](http://www.jmlr.org/papers/volume3/blei03a/blei03a.pdf) topic modelling on the data with the goal of finding a good way of organising Papers Past by topic. It is anticipated that topic models may avoid the problems associated with low-quality OCR and offer better ways for users to explore the collection. 
 
-Students will use the Mallet implementation of the LDA algorithm to make recommendations about the best number of topics to include and strategies for improving the model, e.g., identifying 'bad OCR' topics to filter out of the training data set. They will visualise and report on the results over time and by region to give a descriptive overview of Papers Past through the topics. They will also make recommendations about the best ways to present topic model results to users, e.g., number of topics to show, inclusion or exclusion of bigrams.
+We will use the [Mallet](http://mallet.cs.umass.edu/) implementation of the LDA algorithm to make recommendations about the best number of topics to include and strategies for improving the model, e.g., identifying 'bad OCR' topics to filter out of the training data set. We will visualise and report on the results over time and by region to give a descriptive overview of Papers Past through the topics. We will also make recommendations about the best ways to present topic model results to users, e.g., number of topics to show, inclusion or exclusion of bigrams.
 
 The primary outcome will be a report documenting the methodology, analysis of results and recommendations for NLNZ. Any configuration files or pre-processing scripts should be included as appendices.
 
@@ -27,7 +28,8 @@ The Papers Past dataset has:
 * total 16,731,578 documents,
 * each file contains 112 to 3,007,465 documents.
 
-## Requirement and Setup
+
+## Setup
 
 To run the notebooks locally, you will need Python3 as well as the libraries recorded in the [requirement.txt](https://github.com/xandercai/papers-past-topic-modeling/blob/master/requirement.txt). I recommend managing Python and the libraries using `pip`.
 
@@ -55,10 +57,12 @@ Part | File | Comment
 [7-applying](https://github.com/xandercai/papers-past-topic-modeling/tree/master/7-applying) | [1-mining.ipynb](https://github.com/xandercai/papers-past-topic-modeling/blob/master/7-applying/1-mining.ipynb) | The application of data mining -<br/>using linear regression to explore the correlation of topics.
 &nbsp; | [2-sentiment.ipynb](https://github.com/xandercai/papers-past-topic-modeling/blob/master/7-applying/2-sentiment.ipynb) | The application of sentiment analysis -<br/>using a sentiment analysis package to learn the historical sentiment.
 
+
 ## Directory
 
 Below shows the project directory tree, check [tree.txt](https://github.com/xandercai/papers-past-topic-modeling/blob/master/tree.txt) for more detail.
 
+```
 papers-past-topic-modeling
 ├── 1-loading
 ├── 2-wrangling
@@ -86,7 +90,15 @@ papers-past-topic-modeling
 │   └── wwi
 ├── temp
 └── utils
+```
+
+
+## Version
+
+1.0.0
+
 
 ## Copyright
 
+[License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.<br/>
 The code is released under the MIT license, and the text under the Creative Commons Attribution-NonCommercial 4.0 International license. See [license.md](https://github.com/xandercai/papers-past-topic-modeling/blob/master/license.md) for details.
