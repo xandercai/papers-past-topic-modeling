@@ -2,5 +2,6 @@
 !*.py
 !*.ipynb
 !*.md
+!*.sh
 !*/
 .ipynb_checkpoints/
