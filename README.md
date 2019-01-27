@@ -100,5 +100,5 @@ papers-past-topic-modeling
 
 ## Copyright
 
-[License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.<br/>
+[License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)&nbsp;<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.<br/>
 The code is released under the MIT license, and the text under the Creative Commons Attribution-NonCommercial 4.0 International license. See [license.md](https://github.com/xandercai/papers-past-topic-modeling/blob/master/license.md) for details.
