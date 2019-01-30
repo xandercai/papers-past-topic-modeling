@@ -109,7 +109,7 @@ then
                            --use-pipe-from $TRAIN/import.model \
                            --label 0 \
                            --remove-stopwords \
-                           --replacement-files ./words/replacement.txt \
+                           --replacement-files ./words/replacement.txt ./words/bigram.txt\
                            --extra-stopwords ./words/extraStopwords.txt \
                            --keep-sequence
                            #--keep-sequence-bigrams
