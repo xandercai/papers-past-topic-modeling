@@ -111,10 +111,8 @@ papers-past-topic-modeling
 └── utils
 ```
 
-
-## Version
-
-1.0.0
+## Result
+![sentiment](../temp/sentiment.png)
 
 
 ## Copyright
