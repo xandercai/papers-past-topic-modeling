@@ -112,7 +112,7 @@ papers-past-topic-modeling
 ```
 
 ## Result
-![sentiment](../temp/sentiment.png)
+![sentiment](./temp/sentiment.png)
 
 
 ## Copyright
