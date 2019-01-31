@@ -75,7 +75,7 @@ Part | File | Comment
 &nbsp; | [5-analysis-ads.ipynb](https://github.com/xandercai/papers-past-topic-modeling/blob/master/6-analyzing/5-analysis-ads.ipynb) | Analyze and visualize dataset from specific label (advertisements),<br/>which focus on the topics of different label (advertisements or not).
 [7-applying](https://github.com/xandercai/papers-past-topic-modeling/tree/master/7-applying) | [1-mining.ipynb](https://github.com/xandercai/papers-past-topic-modeling/blob/master/7-applying/1-mining.ipynb) | The application of data mining -<br/>using linear regression to explore the correlation of topics.
 &nbsp; | [2-sentiment.ipynb](https://github.com/xandercai/papers-past-topic-modeling/blob/master/7-applying/2-sentiment.ipynb) | The application of sentiment analysis -<br/>using [TextBlob](https://github.com/sloria/textblob) to evaluate the historical sentiment.
-&nbsp; | [3-similarity.ipynb](https://github.com/xandercai/papers-past-topic-modeling/blob/master/7-applying/3-similarity.ipynb) | The application of recommand similar documents -<br/>using Jensen-Shannon Divergence to evaluate similarity between documents.
+&nbsp; | [3-similarity.ipynb](https://github.com/xandercai/papers-past-topic-modeling/blob/master/7-applying/3-similarity.ipynb) | The application of recommand similar documents -<br/>using Jensen-Shannon Divergence to evaluate similarities.
 
 
 ## Directory
