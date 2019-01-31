@@ -112,6 +112,11 @@ papers-past-topic-modeling
 ```
 
 ## Result
+
+* Correlation between topics
+![corr](./temp/regression.png)
+
+* Sentiment analysis on topic models over time
 ![sentiment](./temp/sentiment.png)
 
 
