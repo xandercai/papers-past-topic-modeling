@@ -14,6 +14,7 @@ from pyspark.sql import functions as F
 from pyspark.sql.types import *
 from pyspark.sql.session import SparkSession
 from matplotlib import pyplot as plt
+from wordcloud import WordCloud
 plt.style.use('ggplot')
 import seaborn as sns
 sns.axes_style("darkgrid")
@@ -62,7 +63,7 @@ def conf_pyspark():
     conf.setAppName('local')
     conf.set('spark.driver.cores', 6) # set processor number
     conf.set('spark.driver.memory', '62g') # set memory size
-    conf.set('spark.driver.maxResultSize', '4g')
+    conf.set('spark.driver.maxResultSize', '8g')
 
     # for avoid import error caused by udf in utils files
     myPyFiles = ['../utils/utils_preplot.py']
@@ -185,7 +186,7 @@ def plot_topics(df, kind='', col_order=None, adjust_top=0.97, title=None, height
         g = sns.catplot(x="year", y='weight', hue="topic",
                         col='keywords', col_wrap=col_wrap, col_order=col_order,
                         kind='strip', height=height, aspect=2, jitter=1, dodge=False, legend=False,
-                        s=4, alpha=0.6, edgecolors='w',
+                        s=4, alpha=0.5, edgecolors='w',
                         data=df)
         g.fig.suptitle("Dominant Topics Distribution of {}".format(title), fontsize=16)
 
@@ -204,9 +205,67 @@ def plot_topics(df, kind='', col_order=None, adjust_top=0.97, title=None, height
                         data=df)
         g.fig.suptitle("Average Weight of {}".format(title), fontsize=16)
 
+    elif kind == 'region':
+        g = sns.catplot(x="year", y='weight',
+                        col='region', col_wrap=col_wrap, col_order=col_order,
+                        kind='point', height=height, aspect=2, dodge=False, s=1, legend=False,
+                        markers='.', scale=0.5,
+                        data=df)
+        g.fig.suptitle("Average Weight of topic {}".format(title), fontsize=16)
+
     else:
         print('wrong kind.')
 
     g.fig.subplots_adjust(top=adjust_top)
     g.set_xticklabels(rotation=90, step=2)
     return g
+
+
+
+
+def addWeight(keywords):
+    k = keywords.split()
+    s = sum(range(len(k)+1))
+    v = [i / s for i in range(len(k), 0, -1)]
+    return dict(zip(k, v))
+
+
+def plot_wordcloud(df_plt, topics, words, cols):
+    """
+    input:
+        df_plt: dataframe to plot
+        topics: topic number to plot
+        words: words number to plot
+        cols: column number in plot
+    """
+
+    df_plt['cloudwords'] = df_plt['keywords'].map(addWeight)
+
+
+    #show_num_topics = df_plt.shape[0]
+    plt_topics = topics
+    plt_words  = words
+    plt_cols   = cols
+
+    cloud = WordCloud(width=800,
+                      height=600,
+                      max_words=plt_words,
+                      colormap='rainbow')
+
+    fig, axes = plt.subplots(int(plt_topics/4), plt_cols,
+                             figsize=(13,13),
+                             sharex=True, sharey=True)
+
+    for i, ax in enumerate(axes.flatten()):
+        fig.add_subplot(ax)
+        cloud.generate_from_frequencies(df_plt.iloc[i]['cloudwords'],
+                                        max_font_size=200)
+        plt.gca().imshow(cloud)
+        plt.gca().set_title('Topic {}'.format(i), fontdict=dict(size=14))
+        plt.gca().axis('off')
+
+    plt.subplots_adjust(wspace=0, hspace=0)
+    plt.axis('off')
+    plt.margins(x=0, y=0)
+    plt.tight_layout()
+    plt.show()

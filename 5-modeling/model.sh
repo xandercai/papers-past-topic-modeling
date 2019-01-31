@@ -69,6 +69,12 @@ INTERVAL=40
 BURNIN=300
 #BURNIN=20
 
+#--num-iterations INTEGER
+#  The number of iterations of Gibbs sampling.
+#  Default is 10
+ITERATIONINFER=1000
+
+
 CORES=12
 IDFMIN=0
 IDFMAX=8
@@ -78,6 +84,7 @@ echo 'SEED1='$SEED1
 echo 'SEED2='$SEED2
 echo 'TOPICS='$TOPICS
 echo 'ITERATION='$ITERATION
+echo 'ITERATIONINFER='$ITERATIONINFER
 echo 'INTERVAL='$INTERVAL
 echo 'BURNIN='$BURNIN
 echo 'IDFMIN='$IDFMIN
@@ -172,6 +179,7 @@ then
     mallet infer-topics --inferencer $INFER \
                         --input $OUTPUT/pruned.model \
                         --random-seed $SEED2 \
+                        --num-iterations $ITERATIONINFER \
                         --output-doc-topics $OUTPUT/docTopicsInfer.txt
     echo $( date +%T )' :: Inferred.'
 fi

@@ -77,6 +77,13 @@ def wrangle_data(df, df_region, spark, wen=False, path=None):
     # deduplicate
     df = df.drop_duplicates(subset=['id'])
 
+    # generate charactor counts of each document
+    df = df.withColumn('length', F.length('content'))
+
+    # remove rows with length under min_count
+    min_count = 160
+    df = df.filter(df.length >= min_count)
+
     # extract feature date
     df = df.withColumn('date', df['time'].cast(DateType()))
 
