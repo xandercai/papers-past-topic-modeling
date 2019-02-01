@@ -38,8 +38,8 @@ fi
 #PROCESS='infer'
 
 # set arg
-SEED1=1
-SEED2=1
+SEED1=$RANDOM
+SEED2=$RANDOM
 
 # configure mallet train-topics parameters:
 
