@@ -114,7 +114,7 @@ papers-past-topic-modeling
 
 ## Results
 
-* Published papers number over time:
+* Published papers over time:
 ![papers](./temp/papers.png)
 
 * Data mining - correlations between topics:
