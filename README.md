@@ -114,13 +114,16 @@ papers-past-topic-modeling
 
 ## Results
 
-* Published papers over time:
+* [Most Hot Topic during 1840-1867](https://github.com/xandercai/papers-past-topic-modeling/blob/master/6-analyzing/6-analysis-specific.ipynb):
+![hot](./temp/hot.png)
+
+* [Published papers over time](https://github.com/xandercai/papers-past-topic-modeling/blob/master/3-exploring/1-explore.ipynb):
 ![papers](./temp/papers.png)
 
-* Data mining - correlations between topics:
+* [Data mining - correlations between topics](https://github.com/xandercai/papers-past-topic-modeling/blob/master/7-applying/1-mining.ipynb):
 ![corr](./temp/regression.png)
 
-* Sentiment analysis on topic models over time:
+* [Sentiment analysis on topic models over time](https://github.com/xandercai/papers-past-topic-modeling/blob/master/7-applying/2-sentiment.ipynb):
 ![sentiment](./temp/sentiment.png)
 
 
