@@ -269,3 +269,49 @@ def plot_wordcloud(df_plt, topics, words, cols):
     plt.margins(x=0, y=0)
     plt.tight_layout()
     plt.show()
+
+
+
+def plot_hot(topic, df_topics, df_domtopic, df_avgweight):
+
+    df_plt_dom = filter_topics(df_domtopic, [topic])
+    df_plt_avg = filter_topics(df_avgweight, [topic])
+
+    fig = plt.figure(figsize=(13,13))
+
+    ax = fig.add_subplot(3,1,1)
+    ax = sns.pointplot(x='year', y='weight',
+                       color='tab:red',
+                       markers='.',
+                       scale=0.5,
+                       data=df_plt_avg)
+    plt.setp(ax.get_xticklabels(), visible=False)
+    plt.ylabel('Annual Topic Weight')
+
+    ax = fig.add_subplot(3,1,2)
+    ax = sns.stripplot(x='year', y='weight',
+                       color='tab:blue',
+                       jitter=1.0001,
+                       alpha=0.4,
+                       data=df_plt_dom)
+    plt.setp(ax.get_xticklabels(), visible=False)
+    plt.ylabel('Dominant Topic Weight')
+
+    ax = fig.add_subplot(3,1,3)
+    ax = sns.countplot(x='year',
+                       color='tab:olive',
+                       dodge=False,
+                       data=df_plt_dom)
+
+    fig.suptitle('Topic#{}\n{}'.format(topic, df_topics.iloc[topic][2][0:100]+'...'), fontsize=16)
+    plt.ylabel('Dominant Topic Count')
+    plt.xlabel('Year')
+    plt.xticks(rotation='90')
+    fig.tight_layout()
+    fig.subplots_adjust(top=0.94, hspace=0.02)
+    plt.show()
+
+
+
+
+
