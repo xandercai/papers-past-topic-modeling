@@ -24,7 +24,7 @@ The primary outcome will be a report documenting the methodology, analysis of re
 
 ## Dataset
 
-The raw dataset is part of the [papers past](https://paperspast.natlib.govt.nz/newspapers) dataset, you can download it by API [here](https://natlib.govt.nz/about-us/open-data/papers-past-metadata).
+The raw dataset is a small part of the [papers past](https://paperspast.natlib.govt.nz/newspapers) dataset, you can download it by API [here](https://natlib.govt.nz/about-us/open-data/papers-past-metadata).
 
 The raw dataset contains:
 * total 33 GB,
