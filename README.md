@@ -119,7 +119,7 @@ papers-past-topic-modeling
 ![papers](./temp/plot_papers.png)
 
 * [Word cloud of top 20 most popular topics](https://github.com/xandercai/papers-past-topic-modeling/blob/master/6-analyzing/2-analysis-train.ipynb):
-![wordcloud](./temp/plot_wordcloud)
+![wordcloud](./temp/plot_wordcloud.png)
 
 * [Annual average topic weight heat map](https://github.com/xandercai/papers-past-topic-modeling/blob/master/6-analyzing/6-analysis-specific.ipynb):
 ![heatmap](./temp/plot_heatmap.png)
