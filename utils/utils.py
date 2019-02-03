@@ -232,7 +232,7 @@ def addWeight(keywords):
     return dict(zip(k, v))
 
 
-def plot_wordcloud(df_plt, topics, words, cols, path=None):
+def plot_wordcloud(df_plt, topics, words=20, cols=4, adjust_top=0.94, path=None):
     """
     input:
         df_plt: dataframe to plot
@@ -254,7 +254,7 @@ def plot_wordcloud(df_plt, topics, words, cols, path=None):
                       colormap='rainbow')
 
     fig, axes = plt.subplots(int(plt_topics/4), plt_cols,
-                             figsize=(13,13), dpi=dpi,
+                             figsize=(13,(13/5)*(topics/cols)), dpi=dpi,
                              sharex=True, sharey=True)
 
     for i, ax in enumerate(axes.flatten()):
@@ -272,7 +272,7 @@ def plot_wordcloud(df_plt, topics, words, cols, path=None):
     plt.axis('off')
     plt.margins(x=0, y=0)
     plt.tight_layout(pad=0, w_pad=0, h_pad=0)
-    fig.subplots_adjust(top=0.94)
+    fig.subplots_adjust(top=adjust_top)
 
     if path != None:
         plt.savefig(path, dpi=dpi)
