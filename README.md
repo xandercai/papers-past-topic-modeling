@@ -73,6 +73,7 @@ Part | File | Comment
 &nbsp; | [3-analysis-wwi.ipynb](https://github.com/xandercai/papers-past-topic-modeling/blob/master/6-analyzing/3-analysis-wwi.ipynb) | Analyze and visualize dataset during WWI,<br/>which focus on the topics of different time range.
 &nbsp; | [4-analysis-regions.ipynb](https://github.com/xandercai/papers-past-topic-modeling/blob/master/6-analyzing/4-analysis-regions.ipynb) | Analyze and visualize dataset from specific regions,<br/>which focus on the topics of different region.
 &nbsp; | [5-analysis-ads.ipynb](https://github.com/xandercai/papers-past-topic-modeling/blob/master/6-analyzing/5-analysis-ads.ipynb) | Analyze and visualize dataset from specific label (advertisements),<br/>which focus on the topics of different label (advertisements or not).
+&nbsp; | [6-analysis-specific.ipynb](https://github.com/xandercai/papers-past-topic-modeling/blob/master/6-analyzing/6-analysis-specific.ipynb) | Analyze and visualize specific features in train dataset,<br/>which is an extention of [2-analysis-train.ipynb](https://github.com/xandercai/papers-past-topic-modeling/blob/master/6-analyzing/2-analysis-train.ipynb).
 [7-applying](https://github.com/xandercai/papers-past-topic-modeling/tree/master/7-applying) | [1-mining.ipynb](https://github.com/xandercai/papers-past-topic-modeling/blob/master/7-applying/1-mining.ipynb) | The application of data mining -<br/>using linear regression to explore the correlation of topics.
 &nbsp; | [2-sentiment.ipynb](https://github.com/xandercai/papers-past-topic-modeling/blob/master/7-applying/2-sentiment.ipynb) | The application of sentiment analysis -<br/>using [TextBlob](https://github.com/sloria/textblob) to evaluate the historical sentiment.
 &nbsp; | [3-similarity.ipynb](https://github.com/xandercai/papers-past-topic-modeling/blob/master/7-applying/3-similarity.ipynb) | The application of recommand similar documents -<br/>using [Jensen-Shannon Divergence](https://en.wikipedia.org/wiki/Jensen%E2%80%93Shannon_divergence) to evaluate similarities.
@@ -115,16 +116,25 @@ papers-past-topic-modeling
 ## Results
 
 * [Published papers over time](https://github.com/xandercai/papers-past-topic-modeling/blob/master/3-exploring/1-explore.ipynb):
-![papers](./temp/papers.png)
+![papers](./temp/plot_papers.png)
 
-* [Hotest topic during 1840-1867](https://github.com/xandercai/papers-past-topic-modeling/blob/master/6-analyzing/6-analysis-specific.ipynb):
-![hot](./temp/hot.png)
+* [Word cloud of top 20 most popular topics](https://github.com/xandercai/papers-past-topic-modeling/blob/master/6-analyzing/2-analysis-train.ipynb):
+![wordcloud](./temp/plot_wordcloud)
+
+* [Annual average topic weight heat map](https://github.com/xandercai/papers-past-topic-modeling/blob/master/6-analyzing/6-analysis-specific.ipynb):
+![heatmap](./temp/plot_heatmap.png)
+
+* [Annual average topic weight point plot](https://github.com/xandercai/papers-past-topic-modeling/blob/master/6-analyzing/6-analysis-specific.ipynb):
+![hot](./temp/plot_hotavg.png)
+
+* [One of the annual hotest topic](https://github.com/xandercai/papers-past-topic-modeling/blob/master/6-analyzing/6-analysis-specific.ipynb):
+![hot](./temp/plot_hot.png)
 
 * [Data mining - correlations between topics](https://github.com/xandercai/papers-past-topic-modeling/blob/master/7-applying/1-mining.ipynb):
-![corr](./temp/regression.png)
+![corr](./temp/plot_regression.png)
 
 * [Sentiment analysis on topic models over time](https://github.com/xandercai/papers-past-topic-modeling/blob/master/7-applying/2-sentiment.ipynb):
-![sentiment](./temp/sentiment.png)
+![sentiment](./temp/plot_sentiment.png)
 
 
 ## Copyright
