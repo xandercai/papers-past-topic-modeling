@@ -130,7 +130,7 @@ papers-past-topic-modeling
 * [One of the annual hotest topic](https://github.com/xandercai/papers-past-topic-modeling/blob/master/6-analyzing/6-analysis-specific.ipynb):
 ![hot](./temp/plot_hot.png)
 
-* [Data mining - correlations between topics](https://github.com/xandercai/papers-past-topic-modeling/blob/master/7-applying/1-mining.ipynb):
+* [Most strong positive correlation topic pairs](https://github.com/xandercai/papers-past-topic-modeling/blob/master/7-applying/1-mining.ipynb):
 ![corr](./temp/plot_regression.png)
 
 * [Sentiment analysis on topic models over time](https://github.com/xandercai/papers-past-topic-modeling/blob/master/7-applying/2-sentiment.ipynb):
