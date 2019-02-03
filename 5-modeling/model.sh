@@ -40,6 +40,7 @@ fi
 # set arg
 SEED1=$RANDOM
 SEED2=$RANDOM
+SEED3=$RANDOM
 
 # configure mallet train-topics parameters:
 
@@ -69,11 +70,6 @@ INTERVAL=40
 BURNIN=300
 #BURNIN=20
 
-#--num-iterations INTEGER
-#  The number of iterations of Gibbs sampling.
-#  Default is 10
-ITERATIONINFER=1000
-
 
 CORES=12
 IDFMIN=0
@@ -84,7 +80,6 @@ echo 'SEED1='$SEED1
 echo 'SEED2='$SEED2
 echo 'TOPICS='$TOPICS
 echo 'ITERATION='$ITERATION
-echo 'ITERATIONINFER='$ITERATIONINFER
 echo 'INTERVAL='$INTERVAL
 echo 'BURNIN='$BURNIN
 echo 'IDFMIN='$IDFMIN
@@ -116,7 +111,7 @@ then
                            --use-pipe-from $TRAIN/import.model \
                            --label 0 \
                            --remove-stopwords \
-                           --replacement-files ./words/replacement.txt ./words/bigrams.txt\
+                           --replacement-files ./words/replacement.txt ./words/bigrams.txt \
                            --extra-stopwords ./words/extraStopwords.txt \
                            --keep-sequence
                            #--keep-sequence-bigrams
@@ -154,11 +149,11 @@ then
     mallet train-topics --input $OUTPUT/pruned.model \
                         --num-topics $TOPICS \
                         --num-top-words $TOPWORDS \
+                        --num-iterations $ITERATION \
                         --optimize-interval $INTERVAL \
                         --optimize-burn-in $BURNIN \
-                        --random-seed $SEED1 \
+                        --random-seed $SEED2 \
                         --num-threads $CORES \
-                        --num-iterations $ITERATION \
                         --output-model $OUTPUT/lda.model \
                         --output-doc-topics $OUTPUT/docTopics.txt \
                         --output-topic-keys $OUTPUT/topicKeys.txt \
@@ -178,8 +173,10 @@ then
     echo $( date +%T )' :: Start infering dataset...'
     mallet infer-topics --inferencer $INFER \
                         --input $OUTPUT/pruned.model \
-                        --random-seed $SEED2 \
-                        --num-iterations $ITERATIONINFER \
+                        --random-seed $SEED3 \
+                        --num-iterations $ITERATION \
+                        --sample-interval $INTERVAL \
+                        --burn-in $BURNIN \
                         --output-doc-topics $OUTPUT/docTopicsInfer.txt
     echo $( date +%T )' :: Inferred.'
 fi
