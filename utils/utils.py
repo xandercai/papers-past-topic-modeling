@@ -9,6 +9,7 @@ from pprint import pprint
 
 import findspark
 import pyspark
+
 from pyspark import SparkContext, SparkConf
 from pyspark.sql import functions as F
 from pyspark.sql.types import *
@@ -18,6 +19,7 @@ from wordcloud import WordCloud
 plt.style.use('ggplot')
 import seaborn as sns
 sns.axes_style("darkgrid")
+dpi=80
 
 
 #https://stackoverflow.com/questions/2104080/how-to-check-file-size-in-python
@@ -216,10 +218,10 @@ def plot_topics(df, kind='', col_order=None, adjust_top=0.97, title=None, height
     else:
         print('wrong kind.')
 
-    g.fig.subplots_adjust(top=adjust_top)
     g.set_xticklabels(rotation=90, step=2)
+    g.fig.tight_layout(pad=0, w_pad=0, h_pad=0.5)
+    g.fig.subplots_adjust(top=adjust_top)
     return g
-
 
 
 
@@ -230,7 +232,7 @@ def addWeight(keywords):
     return dict(zip(k, v))
 
 
-def plot_wordcloud(df_plt, topics, words, cols):
+def plot_wordcloud(df_plt, topics, words, cols, path=None):
     """
     input:
         df_plt: dataframe to plot
@@ -242,7 +244,6 @@ def plot_wordcloud(df_plt, topics, words, cols):
     df_plt['cloudwords'] = df_plt['keywords'].map(addWeight)
 
 
-    #show_num_topics = df_plt.shape[0]
     plt_topics = topics
     plt_words  = words
     plt_cols   = cols
@@ -253,7 +254,7 @@ def plot_wordcloud(df_plt, topics, words, cols):
                       colormap='rainbow')
 
     fig, axes = plt.subplots(int(plt_topics/4), plt_cols,
-                             figsize=(13,13),
+                             figsize=(13,13), dpi=dpi,
                              sharex=True, sharey=True)
 
     for i, ax in enumerate(axes.flatten()):
@@ -261,18 +262,99 @@ def plot_wordcloud(df_plt, topics, words, cols):
         cloud.generate_from_frequencies(df_plt.iloc[i]['cloudwords'],
                                         max_font_size=200)
         plt.gca().imshow(cloud)
-        plt.gca().set_title('Topic {}'.format(i), fontdict=dict(size=14))
+        plt.gca().set_title('Topic:{} Weight:{:.5f}'
+                            .format(df_plt.iloc[i]['topic'],
+                                    df_plt.iloc[i]['weight']),
+                            fontdict=dict(size=14))
         plt.gca().axis('off')
 
-    plt.subplots_adjust(wspace=0, hspace=0)
+    fig.suptitle("Most Popular Topics Over Time", fontsize=16)
     plt.axis('off')
     plt.margins(x=0, y=0)
-    plt.tight_layout()
+    plt.tight_layout(pad=0, w_pad=0, h_pad=0)
+    fig.subplots_adjust(top=0.94)
+
+    if path != None:
+        plt.savefig(path, dpi=dpi)
+        plt.show()
+        plt.close()
+        return
+
+    plt.show()
+
+
+def plot_heatmap(df_plt, T=False,
+                 title='Annual Average Weight Over Time',
+                 path=None):
+
+    if T == False:
+        fig, ax = plt.subplots(figsize=(13, 20), dpi=dpi)
+        sns.heatmap(df_plt,
+                    cmap='coolwarm',
+                    cbar=True,
+                    cbar_kws={'shrink':0.2, 'pad':0.005},
+                    annot=False,
+                    square=True,
+                    ax=ax
+                    )
+        plt.xlabel('Year')
+        plt.ylabel('Topic')
+
+    else:
+        fig, ax = plt.subplots(figsize=(20, 13), dpi=dpi)
+        sns.heatmap(df_plt.T,
+                    cmap='coolwarm',
+                    cbar=True,
+                    cbar_kws={'shrink':0.2, 'pad':0.005},
+                    annot=False,
+                    square=True,
+                    ax=ax
+                    )
+        plt.ylabel('Year')
+        plt.xlabel('Topic')
+
+    plt.title(title, fontdict=dict(size=16))
+    plt.xticks(rotation='90')
+    plt.tight_layout(pad=0, w_pad=0, h_pad=0)
+
+    if path != None:
+        plt.savefig(path, dpi=dpi)
+        plt.show()
+        plt.close()
+        return
+
+    plt.show()
+
+
+def plot_avg(df_avgweight, col_wrap=10, col_order=None,
+             height=1.5, scale=0.2, adjust_top=0.96,
+             title='Annual Average Weight of Topics Over Time',
+             path=None):
+
+    g = sns.catplot(x="year", y='weight',  col='topic',
+                    col_wrap=col_wrap, col_order=col_order,
+                    kind='point', height=height, aspect=1,
+                    dodge=False, s=1, legend=False,
+                    markers='.', scale=scale,
+                    data=df_avgweight)
+
+    g.fig.suptitle(title, fontsize=16)
+    g.set_xticklabels(visible=False)
+    g.set_yticklabels(visible=False)
+    plt.tight_layout(pad=0, w_pad=0, h_pad=0.6)
+    g.fig.subplots_adjust(top=adjust_top)
+
+    if path != None:
+        plt.savefig(path, dpi=dpi)
+        plt.show()
+        plt.close()
+        return
+
     plt.show()
 
 
 
-def plot_hot(topic, df_topics, df_domtopic, df_avgweight):
+def plot_hot(topic, df_topics, df_domtopic, df_avgweight, adjust_top=0.94, path=None):
 
     df_plt_dom = filter_topics(df_domtopic, [topic])
     df_plt_avg = filter_topics(df_avgweight, [topic])
@@ -285,33 +367,52 @@ def plot_hot(topic, df_topics, df_domtopic, df_avgweight):
                        markers='.',
                        scale=0.5,
                        data=df_plt_avg)
-    plt.setp(ax.get_xticklabels(), visible=False)
-    plt.ylabel('Annual Topic Weight')
+    ax.get_xaxis().set_visible(False)
+    ax.set_ylabel('Annual Average Weight')
 
     ax = fig.add_subplot(3,1,2)
     ax = sns.stripplot(x='year', y='weight',
                        color='tab:blue',
                        jitter=1.0001,
-                       alpha=0.4,
+                       alpha=0.3,
                        data=df_plt_dom)
-    plt.setp(ax.get_xticklabels(), visible=False)
-    plt.ylabel('Dominant Topic Weight')
+    ax.get_xaxis().set_visible(False)
+    ax.set_ylabel('Dominant Topic Weight')
 
-    ax = fig.add_subplot(3,1,3)
-    ax = sns.countplot(x='year',
-                       color='tab:olive',
-                       dodge=False,
-                       data=df_plt_dom)
+    ax1 = fig.add_subplot(3,1,3)
 
-    fig.suptitle('Topic#{}\n{}'.format(topic, df_topics.iloc[topic][2][0:100]+'...'), fontsize=16)
-    plt.ylabel('Dominant Topic Count')
-    plt.xlabel('Year')
-    plt.xticks(rotation='90')
-    fig.tight_layout()
-    fig.subplots_adjust(top=0.94, hspace=0.02)
+    ax1 = sns.countplot(x='year',
+                        color='tab:green',
+                        dodge=False,
+                        data=df_plt_dom)
+    ax1.set_ylabel('Dominant Topic Count')
+    ax1.set_xlabel('Year')
+    ax1.set_xticklabels(ax.get_xticklabels(), rotation=90)
+
+    ax2 = ax1.twinx()
+    ax2 = sns.countplot(x='year',
+                        color='tab:green',
+                        dodge=False,
+                        facecolor=(0, 0, 0, 0),
+                        linewidth=1,
+                        edgecolor='tab:olive',
+                        data=df_domtopic)
+    ax2.grid(False)
+    ax2.set_ylabel('Total Documents Count')
+
+    fig.suptitle('Topic#{}\n{}'
+                 .format(topic,
+                         df_topics.iloc[topic][2][0:100]+'...'),
+                 fontsize=16)
+
+    plt.tight_layout(pad=0, w_pad=0, h_pad=0)
+    fig.subplots_adjust(top=adjust_top)
+
+    if path != None:
+        plt.savefig(path, dpi=dpi)
+        plt.show()
+        plt.close()
+        return
+
     plt.show()
-
-
-
-
 

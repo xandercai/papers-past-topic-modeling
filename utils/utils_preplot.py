@@ -136,7 +136,7 @@ def preplot(df_doctopic, df_meta, df_topics, kind):
 
     topic_number = df_topics.count()
 
-    #df_doctopic = load_doctopic(df_doctopic, topic_number, spark)
+    #df_doctopic = load_doctopic(f, n, spark)
 
     df_doctopic = add_domtopic(df_doctopic)
 
