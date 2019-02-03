@@ -115,22 +115,22 @@ papers-past-topic-modeling
 
 ## Results
 
-* [Published papers over time](https://github.com/xandercai/papers-past-topic-modeling/blob/master/3-exploring/1-explore.ipynb):
+* [The papers number over time](https://github.com/xandercai/papers-past-topic-modeling/blob/master/3-exploring/1-explore.ipynb):
 ![papers](./temp/plot_papers.png)
 
 * [Word cloud of top 20 most popular topics](https://github.com/xandercai/papers-past-topic-modeling/blob/master/6-analyzing/2-analysis-train.ipynb):
 ![wordcloud](./temp/plot_wordcloud.png)
 
-* [Annual average topic weight heat map](https://github.com/xandercai/papers-past-topic-modeling/blob/master/6-analyzing/6-analysis-specific.ipynb):
+* [The annual average topic weight heat map](https://github.com/xandercai/papers-past-topic-modeling/blob/master/6-analyzing/6-analysis-specific.ipynb):
 ![heatmap](./temp/plot_heatmap.png)
 
-* [Annual average topic weight point plot](https://github.com/xandercai/papers-past-topic-modeling/blob/master/6-analyzing/6-analysis-specific.ipynb):
+* [Part of the annual average topic weight point plot](https://github.com/xandercai/papers-past-topic-modeling/blob/master/6-analyzing/6-analysis-specific.ipynb):
 ![hot](./temp/plot_hotavg.png)
 
 * [One of the annual hotest topic](https://github.com/xandercai/papers-past-topic-modeling/blob/master/6-analyzing/6-analysis-specific.ipynb):
 ![hot](./temp/plot_hot.png)
 
-* [Most strong positive correlation topic pairs](https://github.com/xandercai/papers-past-topic-modeling/blob/master/7-applying/1-mining.ipynb):
+* [The most strong positive correlation topic pairs](https://github.com/xandercai/papers-past-topic-modeling/blob/master/7-applying/1-mining.ipynb):
 ![corr](./temp/plot_regression.png)
 
 * [Sentiment analysis on topic models over time](https://github.com/xandercai/papers-past-topic-modeling/blob/master/7-applying/2-sentiment.ipynb):
