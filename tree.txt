@@ -1,414 +1,438 @@
 .
-├── 1-loading
-│   └── 1-load.ipynb
-├── 2-wrangling
-│   └── 1-wrangling.ipynb
-├── 3-exploring
-│   └── 1-explore.ipynb
-├── 4-preprocessing
-│   ├── 1-preprocess.ipynb
-│   └── img.jpg
-├── 5-modeling
-│   ├── 1-split.ipynb
-│   ├── 2-model.ipynb
-│   ├── model.sh
-│   └── words
-│       ├── bigrams.txt
-│       ├── extraStopwords.txt
-│       └── replacement.txt
-├── 6-analyzing
-│   ├── 1-prepare.ipynb
-│   ├── 2-analysis-train.ipynb
-│   ├── 3-analysis-wwi.ipynb
-│   ├── 4-analysis-regions.ipynb
-│   ├── 5-analysis-ads.ipynb
-│   └── 6-analysis-specific.ipynb
-├── 7-applying
-│   ├── 1-mining.ipynb
-│   ├── 2-sentiment.ipynb
-│   └── 3-similarity.ipynb
-├── data
-│   ├── dataset
-│   │   ├── clean
-│   │   │   ├── part-00000-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00001-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00002-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00003-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00004-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00005-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00006-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00007-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00008-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00009-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00010-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00011-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00012-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00013-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00014-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00015-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00016-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00017-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00018-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00019-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00020-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00021-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00022-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00023-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00024-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00025-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00026-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00027-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00028-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00029-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00030-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00031-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00032-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00033-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00034-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00035-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00036-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00037-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00038-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00039-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00040-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00041-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00042-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00043-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00044-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00045-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00046-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00047-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00048-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00049-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00050-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00051-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00052-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00053-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00054-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00055-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00056-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00057-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00058-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00059-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00060-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00061-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00062-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00063-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00064-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00065-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00066-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00067-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00068-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00069-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00070-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00071-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00072-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00073-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00074-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00075-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00076-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00077-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00078-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00079-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00080-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00081-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00082-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00083-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00084-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00085-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00086-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00087-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00088-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00089-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00090-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00091-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00092-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00093-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00094-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00095-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00096-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00097-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00098-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00099-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00100-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00101-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00102-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00103-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00104-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00105-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00106-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00107-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00108-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00109-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00110-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00111-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00112-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00113-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00114-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00115-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00116-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00117-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00118-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00119-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00120-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00121-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00122-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00123-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00124-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00125-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00126-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00127-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00128-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00129-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00130-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00131-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00132-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00133-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00134-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00135-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00136-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00137-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00138-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00139-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00140-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00141-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00142-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00143-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00144-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00145-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00146-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00147-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00148-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00149-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00150-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00151-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00152-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00153-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00154-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00155-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00156-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00157-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00158-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00159-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00160-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00161-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00162-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00163-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00164-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00165-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00166-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00167-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00168-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00169-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00170-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00171-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00172-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00173-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00174-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00175-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00176-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00177-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00178-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00179-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00180-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00181-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00182-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00183-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00184-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00185-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00186-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00187-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00188-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00189-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00190-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00191-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00192-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00193-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00194-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00195-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00196-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00197-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00198-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   ├── part-00199-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
-│   │   │   └── _SUCCESS
-│   │   ├── sample
-│   │   │   ├── meta
-│   │   │   │   ├── meta.csv
-│   │   │   │   └── _SUCCESS
-│   │   │   ├── subset
-│   │   │   │   ├── ads
-│   │   │   │   │   ├── ads.csv
-│   │   │   │   │   └── _SUCCESS
-│   │   │   │   ├── Canterbury
-│   │   │   │   │   ├── Canterbury.csv
-│   │   │   │   │   └── _SUCCESS
-│   │   │   │   ├── Manawatu-Wanganui
-│   │   │   │   │   ├── Manawatu-Wanganui.csv
-│   │   │   │   │   └── _SUCCESS
-│   │   │   │   ├── Otago
-│   │   │   │   │   ├── Otago.csv
-│   │   │   │   │   └── _SUCCESS
-│   │   │   │   ├── Wellington
-│   │   │   │   │   ├── _SUCCESS
-│   │   │   │   │   └── Wellington.csv
-│   │   │   │   └── wwi
-│   │   │   │       ├── _SUCCESS
-│   │   │   │       └── wwi.csv
-│   │   │   └── train
-│   │   │       ├── _SUCCESS
-│   │   │       └── train.csv
-│   │   └── similarity
-│   │       └── corpus.tsv
-│   └── papers_past
-│       ├── Akaroa Mail and Banks Peninsula Advertiser.txt
-│       ├── Albertland Gazette.txt
-│       ├── Ashburton Guardian.txt
-│       ├── Auckland Star.txt
-│       ├── Bay Of Plenty Times.txt
-│       ├── Bruce Herald.txt
-│       ├── Bush Advocate.txt
-│       ├── Clutha Leader.txt
-│       ├── Colonist.txt
-│       ├── Daily Southern Cross.txt
-│       ├── Daily Telegraph.txt
-│       ├── Ellesmere Guardian.txt
-│       ├── Evening Post.txt
-│       ├── Fair Play.txt
-│       ├── Feilding Star.txt
-│       ├── Grey River Argus.txt
-│       ├── Hawera & Normanby Star.txt
-│       ├── Hawke's Bay Herald.txt
-│       ├── Hawke's Bay Weekly Times.txt
-│       ├── Hutt News.txt
-│       ├── Inangahua Times.txt
-│       ├── Kaipara and Waitemata Echo.txt
-│       ├── Kai Tiaki.txt
-│       ├── Lyttelton_Times.txt
-│       ├── Manawatu Herald.txt
-│       ├── Manawatu Standard.txt
-│       ├── Manawatu Times.txt
-│       ├── Marlborough Express.txt
-│       ├── Mataura Ensign.txt
-│       ├── Nelson Evening Mail.txt
-│       ├── Nelson Examiner and New Zealand Chronicle.txt
-│       ├── New Zealand Advertiser and Bay of Islands Gazette.txt
-│       ├── New Zealand Colonist and Port Nicholson Advertiser.txt
-│       ├── New Zealander.txt
-│       ├── New Zealand Free Lance.txt
-│       ├── New Zealand Gazette and Wellington Spectator.txt
-│       ├── New Zealand Illustrated Magazine.txt
-│       ├── New Zealand Spectator and Cook's Strait Guardian.txt
-│       ├── New Zealand Tablet.txt
-│       ├── Northern Advocate.txt
-│       ├── North Otago Times.txt
-│       ├── NZ Truth.txt
-│       ├── Observer.txt
-│       ├── Ohinemuri Gazette.txt
-│       ├── Otago Daily Times.txt
-│       ├── Otago Witness.txt
-│       ├── Otautau Standard and Wallace County Chronicle.txt
-│       ├── Oxford Observer.txt
-│       ├── Poverty Bay Herald.txt
-│       ├── Progress.txt
-│       ├── Rodney and Otamatea Times, Waitemata and Kaipara Gazette.txt
-│       ├── Southland Times.txt
-│       ├── Star.txt
-│       ├── Taranaki Daily News.txt
-│       ├── Taranaki Herald.txt
-│       ├── Te Aroha News.txt
-│       ├── Thames Star.txt
-│       ├── Timaru Herald.txt
-│       ├── Tuapeka Times.txt
-│       ├── Waiapu Church Gazette.txt
-│       ├── Waiapu Church Times.txt
-│       ├── Waikato Times.txt
-│       ├── Waimate Daily Advertiser.txt
-│       ├── Wairarapa Daily Times.txt
-│       ├── Wanganui Chronicle.txt
-│       ├── Wanganui Herald.txt
-│       ├── Wellington Independent.txt
-│       └── West Coast Times.txt
-├── license.md
-├── models
-│   ├── ads
-│   │   ├── docTopicsInfer.txt
-│   │   ├── import.model
-│   │   └── pruned.model
-│   ├── canterbury
-│   │   ├── docTopicsInfer.txt
-│   │   ├── import.model
-│   │   ├── log.txt
-│   │   └── pruned.model
-│   ├── manawatu-wanganui
-│   │   ├── docTopicsInfer.txt
-│   │   ├── import.model
-│   │   ├── log.txt
-│   │   └── pruned.model
-│   ├── otago
-│   │   ├── docTopicsInfer.txt
-│   │   ├── import.model
-│   │   ├── log.txt
-│   │   └── pruned.model
-│   ├── similarity
-│   │   ├── docTopicsInfer.txt
-│   │   ├── import.model
-│   │   └── pruned.model
-│   ├── train
-│   │   ├── avgWeight.csv
-│   │   ├── diagnostics.xml
-│   │   ├── docTopics.txt
-│   │   ├── domTopics.csv
-│   │   ├── import.model
-│   │   ├── inferencer.model
-│   │   ├── lda.model
-│   │   ├── pruned.model
-│   │   └── topicKeys.txt
-│   ├── wellington
-│   │   └── log.txt
-│   └── wwi
-│       ├── avgWeight.csv
-│       ├── docTopicsInfer.txt
-│       ├── domTopics.csv
-│       ├── import.model
-│       ├── log.txt
-│       ├── pruned.model
-│       ├── topicKeys.csv
-│       └── topicKeysOthers.csv
-├── README.md
-├── requirement.txt
-├── temp
-│   ├── bigrams.ipynb
-│   ├── bigram.txt
-│   ├── cover.ipynb
-│   ├── cover.png
-│   ├── frequency_dictionary_en_82_765.txt
-│   ├── img.gif
-│   ├── kiwi.png
-│   ├── madslinux01.py
-│   ├── mallet.txt
-│   ├── n_n.txt
-│   ├── ocr.txt
-│   ├── Papers Past _ Explore all newspapers.html
-│   ├── plot_heatmap.png
-│   ├── plot_heatmap_T.png
-│   ├── plot_hotavg.png
-│   ├── plot_hot.png
-│   ├── plot_papers.png
-│   ├── plot_regression.png
-│   ├── plot_sentiment.png
-│   ├── plot_wordcloud.png
-│   ├── region.csv
-│   ├── test_corpus.txt
-│   └── v_a.txt
-├── tree.txt
-└── utils
-    ├── __pycache__
-    │   ├── utils.cpython-35.pyc
-    │   ├── utils_data.cpython-35.pyc
-    │   ├── utils_load.cpython-35.pyc
-    │   └── utils_preplot.cpython-35.pyc
-    ├── utils_preplot.py
-    ├── utils.py
-    └── utils_wrangling.py
+├── [4.0K]  1-loading
+│   └── [190K]  1-load.ipynb
+├── [4.0K]  2-wrangling
+│   └── [126K]  1-wrangling.ipynb
+├── [4.0K]  3-exploring
+│   └── [787K]  1-explore.ipynb
+├── [4.0K]  4-preprocessing
+│   ├── [ 36K]  1-preprocess.ipynb
+│   └── [ 89K]  img.jpg
+├── [4.0K]  5-modeling
+│   ├── [ 26K]  1-split.ipynb
+│   ├── [ 46K]  2-model.ipynb
+│   ├── [5.0K]  model.sh
+│   └── [4.0K]  words
+│       ├── [146K]  bigrams.txt
+│       ├── [ 799]  extraStopwords.txt
+│       └── [ 456]  replacement.txt
+├── [4.0K]  6-analyzing
+│   ├── [137K]  1-prepare.ipynb
+│   ├── [5.6M]  2-analysis-train.ipynb
+│   ├── [3.9M]  3-analysis-wwi.ipynb
+│   ├── [2.0M]  4-analysis-regions.ipynb
+│   ├── [3.3M]  5-analysis-ads.ipynb
+│   └── [6.1M]  6-analysis-specific.ipynb
+├── [4.0K]  7-applying
+│   ├── [1.6M]  1-mining.ipynb
+│   ├── [248K]  2-sentiment.ipynb
+│   └── [134K]  3-similarity.ipynb
+├── [4.0K]  data
+│   ├── [ 36K]  dataset
+│   │   ├── [ 44K]  clean
+│   │   │   ├── [ 86M]  part-00000-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 79M]  part-00001-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 93M]  part-00002-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [108M]  part-00003-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 93M]  part-00004-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 91M]  part-00005-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 99M]  part-00006-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [104M]  part-00007-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 98M]  part-00008-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 90M]  part-00009-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 91M]  part-00010-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 83M]  part-00011-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 82M]  part-00012-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 95M]  part-00013-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 91M]  part-00014-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 92M]  part-00015-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 96M]  part-00016-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 81M]  part-00017-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [106M]  part-00018-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 93M]  part-00019-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 82M]  part-00020-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 90M]  part-00021-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 90M]  part-00022-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 85M]  part-00023-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 87M]  part-00024-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 98M]  part-00025-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 81M]  part-00026-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 89M]  part-00027-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 82M]  part-00028-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 68M]  part-00029-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 81M]  part-00030-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 77M]  part-00031-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 75M]  part-00032-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 74M]  part-00033-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 79M]  part-00034-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 85M]  part-00035-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 78M]  part-00036-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 77M]  part-00037-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 75M]  part-00038-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 92M]  part-00039-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 80M]  part-00040-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 69M]  part-00041-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 81M]  part-00042-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 78M]  part-00043-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 73M]  part-00044-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 62M]  part-00045-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 75M]  part-00046-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 78M]  part-00047-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 83M]  part-00048-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 71M]  part-00049-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 72M]  part-00050-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 80M]  part-00051-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 84M]  part-00052-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 93M]  part-00053-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 77M]  part-00054-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 81M]  part-00055-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 70M]  part-00056-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 83M]  part-00057-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 83M]  part-00058-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 71M]  part-00059-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 69M]  part-00060-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 70M]  part-00061-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 58M]  part-00062-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 58M]  part-00063-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 71M]  part-00064-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 53M]  part-00065-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 63M]  part-00066-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 73M]  part-00067-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 62M]  part-00068-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 67M]  part-00069-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 66M]  part-00070-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 71M]  part-00071-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 57M]  part-00072-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 57M]  part-00073-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 63M]  part-00074-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 55M]  part-00075-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 69M]  part-00076-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 57M]  part-00077-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 59M]  part-00078-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 67M]  part-00079-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 70M]  part-00080-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 57M]  part-00081-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 61M]  part-00082-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 63M]  part-00083-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 56M]  part-00084-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 54M]  part-00085-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 63M]  part-00086-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 46M]  part-00087-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 48M]  part-00088-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 39M]  part-00089-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 49M]  part-00090-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 53M]  part-00091-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 46M]  part-00092-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 54M]  part-00093-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 55M]  part-00094-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 57M]  part-00095-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 57M]  part-00096-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 55M]  part-00097-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 66M]  part-00098-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 50M]  part-00099-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 55M]  part-00100-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 47M]  part-00101-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 54M]  part-00102-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 43M]  part-00103-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 53M]  part-00104-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 54M]  part-00105-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 65M]  part-00106-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 58M]  part-00107-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 65M]  part-00108-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 69M]  part-00109-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 63M]  part-00110-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 72M]  part-00111-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 63M]  part-00112-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 72M]  part-00113-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 70M]  part-00114-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 67M]  part-00115-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 62M]  part-00116-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 92M]  part-00117-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 61M]  part-00118-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 77M]  part-00119-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 56M]  part-00120-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 64M]  part-00121-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 64M]  part-00122-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 62M]  part-00123-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 63M]  part-00124-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 67M]  part-00125-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 60M]  part-00126-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 53M]  part-00127-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 58M]  part-00128-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 55M]  part-00129-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 61M]  part-00130-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 72M]  part-00131-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 77M]  part-00132-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 70M]  part-00133-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 63M]  part-00134-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 62M]  part-00135-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 65M]  part-00136-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 55M]  part-00137-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 35M]  part-00138-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 70M]  part-00139-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 52M]  part-00140-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 49M]  part-00141-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 51M]  part-00142-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [111M]  part-00143-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 78M]  part-00144-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 74M]  part-00145-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 44M]  part-00146-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 70M]  part-00147-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 55M]  part-00148-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 49M]  part-00149-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 49M]  part-00150-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 60M]  part-00151-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 48M]  part-00152-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 77M]  part-00153-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 65M]  part-00154-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 59M]  part-00155-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 63M]  part-00156-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 46M]  part-00157-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 50M]  part-00158-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 49M]  part-00159-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 59M]  part-00160-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 66M]  part-00161-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 49M]  part-00162-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 42M]  part-00163-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 50M]  part-00164-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 56M]  part-00165-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 47M]  part-00166-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 45M]  part-00167-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 41M]  part-00168-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 47M]  part-00169-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 60M]  part-00170-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 54M]  part-00171-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 49M]  part-00172-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 54M]  part-00173-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 51M]  part-00174-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 61M]  part-00175-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 78M]  part-00176-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 65M]  part-00177-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 85M]  part-00178-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 62M]  part-00179-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 56M]  part-00180-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 49M]  part-00181-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 40M]  part-00182-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 64M]  part-00183-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 72M]  part-00184-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 59M]  part-00185-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 59M]  part-00186-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 88M]  part-00187-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 70M]  part-00188-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 58M]  part-00189-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 57M]  part-00190-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 46M]  part-00191-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 48M]  part-00192-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 53M]  part-00193-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [102M]  part-00194-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [120M]  part-00195-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [114M]  part-00196-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [124M]  part-00197-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [126M]  part-00198-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   ├── [ 37M]  part-00199-5b7c4cd7-9604-4b3d-af8e-82c4d243ffe0-c000.csv.gz
+│   │   │   └── [   0]  _SUCCESS
+│   │   ├── [4.0K]  sample
+│   │   │   ├── [ 40K]  meta
+│   │   │   │   ├── [152M]  meta.csv
+│   │   │   │   └── [   0]  _SUCCESS
+│   │   │   ├── [4.0K]  subset
+│   │   │   │   ├── [ 44K]  ads
+│   │   │   │   │   ├── [2.3G]  ads.csv
+│   │   │   │   │   └── [   0]  _SUCCESS
+│   │   │   │   ├── [ 28K]  Canterbury
+│   │   │   │   │   ├── [505M]  Canterbury.csv
+│   │   │   │   │   └── [   0]  _SUCCESS
+│   │   │   │   ├── [ 24K]  Manawatu-Wanganui
+│   │   │   │   │   ├── [600M]  Manawatu-Wanganui.csv
+│   │   │   │   │   └── [   0]  _SUCCESS
+│   │   │   │   ├── [ 20K]  Otago
+│   │   │   │   │   ├── [1.1G]  Otago.csv
+│   │   │   │   │   └── [   0]  _SUCCESS
+│   │   │   │   ├── [ 28K]  Wellington
+│   │   │   │   │   ├── [   0]  _SUCCESS
+│   │   │   │   │   └── [1.3G]  Wellington.csv
+│   │   │   │   └── [ 28K]  wwi
+│   │   │   │       ├── [   0]  _SUCCESS
+│   │   │   │       └── [777M]  wwi.csv
+│   │   │   └── [ 36K]  train
+│   │   │       ├── [   0]  _SUCCESS
+│   │   │       └── [6.0G]  train.csv
+│   │   └── [4.0K]  similarity
+│   │       └── [ 31K]  corpus.tsv
+│   └── [4.0K]  papers_past
+│       ├── [198M]  Akaroa Mail and Banks Peninsula Advertiser.txt
+│       ├── [267K]  Albertland Gazette.txt
+│       ├── [882M]  Ashburton Guardian.txt
+│       ├── [1.2G]  Auckland Star.txt
+│       ├── [403M]  Bay Of Plenty Times.txt
+│       ├── [300M]  Bruce Herald.txt
+│       ├── [178M]  Bush Advocate.txt
+│       ├── [245M]  Clutha Leader.txt
+│       ├── [970M]  Colonist.txt
+│       ├── [797M]  Daily Southern Cross.txt
+│       ├── [456M]  Daily Telegraph.txt
+│       ├── [342M]  Ellesmere Guardian.txt
+│       ├── [5.9G]  Evening Post.txt
+│       ├── [3.0M]  Fair Play.txt
+│       ├── [823M]  Feilding Star.txt
+│       ├── [947M]  Grey River Argus.txt
+│       ├── [1.3G]  Hawera & Normanby Star.txt
+│       ├── [425M]  Hawke's Bay Herald.txt
+│       ├── [5.1M]  Hawke's Bay Weekly Times.txt
+│       ├── [ 32M]  Hutt News.txt
+│       ├── [147M]  Inangahua Times.txt
+│       ├── [ 30M]  Kaipara and Waitemata Echo.txt
+│       ├── [1.5M]  Kai Tiaki.txt
+│       ├── [116M]  Lyttelton_Times.txt
+│       ├── [107M]  Manawatu Herald.txt
+│       ├── [133M]  Manawatu Standard.txt
+│       ├── [ 78M]  Manawatu Times.txt
+│       ├── [1.1G]  Marlborough Express.txt
+│       ├── [171M]  Mataura Ensign.txt
+│       ├── [547M]  Nelson Evening Mail.txt
+│       ├── [223M]  Nelson Examiner and New Zealand Chronicle.txt
+│       ├── [524K]  New Zealand Advertiser and Bay of Islands Gazette.txt
+│       ├── [6.4M]  New Zealand Colonist and Port Nicholson Advertiser.txt
+│       ├── [ 43M]  New Zealander.txt
+│       ├── [ 44M]  New Zealand Free Lance.txt
+│       ├── [ 21M]  New Zealand Gazette and Wellington Spectator.txt
+│       ├── [8.8M]  New Zealand Illustrated Magazine.txt
+│       ├── [ 68M]  New Zealand Spectator and Cook's Strait Guardian.txt
+│       ├── [214M]  New Zealand Tablet.txt
+│       ├── [406M]  Northern Advocate.txt
+│       ├── [724M]  North Otago Times.txt
+│       ├── [292M]  NZ Truth.txt
+│       ├── [245M]  Observer.txt
+│       ├── [247M]  Ohinemuri Gazette.txt
+│       ├── [2.4G]  Otago Daily Times.txt
+│       ├── [1.1G]  Otago Witness.txt
+│       ├── [ 94M]  Otautau Standard and Wallace County Chronicle.txt
+│       ├── [ 18M]  Oxford Observer.txt
+│       ├── [1.2G]  Poverty Bay Herald.txt
+│       ├── [6.4M]  Progress.txt
+│       ├── [126M]  Rodney and Otamatea Times, Waitemata and Kaipara Gazette.txt
+│       ├── [532M]  Southland Times.txt
+│       ├── [725M]  Star.txt
+│       ├── [ 58M]  Taranaki Daily News.txt
+│       ├── [602M]  Taranaki Herald.txt
+│       ├── [ 80M]  Te Aroha News.txt
+│       ├── [710M]  Thames Star.txt
+│       ├── [475M]  Timaru Herald.txt
+│       ├── [344M]  Tuapeka Times.txt
+│       ├── [ 30M]  Waiapu Church Gazette.txt
+│       ├── [485K]  Waiapu Church Times.txt
+│       ├── [171M]  Waikato Times.txt
+│       ├── [9.1M]  Waimate Daily Advertiser.txt
+│       ├── [603M]  Wairarapa Daily Times.txt
+│       ├── [1.3G]  Wanganui Chronicle.txt
+│       ├── [792M]  Wanganui Herald.txt
+│       ├── [278M]  Wellington Independent.txt
+│       └── [676M]  West Coast Times.txt
+├── [1.8K]  license.md
+├── [4.0K]  models
+│   ├── [4.0K]  ads
+│   │   ├── [436K]  avgWeight.csv
+│   │   ├── [3.3G]  docTopicsInfer.txt
+│   │   ├── [140M]  domTopics.csv
+│   │   ├── [1.0G]  import.model
+│   │   ├── [ 558]  log.txt
+│   │   ├── [728M]  pruned.model
+│   │   ├── [ 33K]  topicKeys.csv
+│   │   └── [ 33K]  topicKeysOthers.csv
+│   ├── [4.0K]  canterbury
+│   │   ├── [372K]  avgWeight.csv
+│   │   ├── [1.1G]  docTopicsInfer.txt
+│   │   ├── [ 46M]  domTopics.csv
+│   │   ├── [372M]  import.model
+│   │   ├── [ 677]  log.txt
+│   │   ├── [154M]  pruned.model
+│   │   ├── [ 33K]  topicKeys.csv
+│   │   └── [ 33K]  topicKeysOthers.csv
+│   ├── [4.0K]  manawatu-wanganui
+│   │   ├── [213K]  avgWeight.csv
+│   │   ├── [1.4G]  docTopicsInfer.txt
+│   │   ├── [ 58M]  domTopics.csv
+│   │   ├── [410M]  import.model
+│   │   ├── [ 697]  log.txt
+│   │   ├── [185M]  pruned.model
+│   │   ├── [ 33K]  topicKeys.csv
+│   │   └── [ 33K]  topicKeysOthers.csv
+│   ├── [4.0K]  otago
+│   │   ├── [331K]  avgWeight.csv
+│   │   ├── [1.5G]  docTopicsInfer.txt
+│   │   ├── [ 58M]  domTopics.csv
+│   │   ├── [579M]  import.model
+│   │   ├── [ 661]  log.txt
+│   │   ├── [335M]  pruned.model
+│   │   ├── [ 33K]  topicKeys.csv
+│   │   └── [ 33K]  topicKeysOthers.csv
+│   ├── [4.0K]  similarity
+│   │   ├── [4.2K]  docTopicsInfer.txt
+│   │   ├── [199M]  import.model
+│   │   └── [199M]  pruned.model
+│   ├── [4.0K]  train
+│   │   ├── [436K]  avgWeight.csv
+│   │   ├── [923K]  diagnostics.xml
+│   │   ├── [ 12G]  docTopics.txt
+│   │   ├── [546M]  domTopics.csv
+│   │   ├── [2.2G]  import.model
+│   │   ├── [ 21M]  inferencer.model
+│   │   ├── [3.6G]  lda.model
+│   │   ├── [1.8G]  pruned.model
+│   │   └── [ 30K]  topicKeys.txt
+│   ├── [4.0K]  wellington
+│   │   ├── [431K]  avgWeight.csv
+│   │   ├── [2.5G]  docTopicsInfer.txt
+│   │   ├── [105M]  domTopics.csv
+│   │   ├── [647M]  import.model
+│   │   ├── [ 677]  log.txt
+│   │   ├── [400M]  pruned.model
+│   │   ├── [ 33K]  topicKeys.csv
+│   │   └── [ 33K]  topicKeysOthers.csv
+│   └── [4.0K]  wwi
+│       ├── [502K]  avgWeight.csv
+│       ├── [2.3G]  docTopicsInfer.txt
+│       ├── [ 95M]  domTopics.csv
+│       ├── [468M]  import.model
+│       ├── [ 656]  log.txt
+│       ├── [236M]  pruned.model
+│       ├── [ 33K]  topicKeys.csv
+│       └── [ 33K]  topicKeysOthers.csv
+├── [ 11K]  README.md
+├── [ 270]  requirement.txt
+├── [4.0K]  temp
+│   ├── [ 11K]  bigrams.ipynb
+│   ├── [146K]  bigram.txt
+│   ├── [331K]  cover.ipynb
+│   ├── [409K]  cover.png
+│   ├── [1.3M]  frequency_dictionary_en_82_765.txt
+│   ├── [147K]  img.gif
+│   ├── [189K]  kiwi.png
+│   ├── [2.6K]  madslinux01.py
+│   ├── [ 16K]  mallet.txt
+│   ├── [241K]  n_n.txt
+│   ├── [2.8K]  ocr.txt
+│   ├── [ 35K]  Papers Past _ Explore all newspapers.html
+│   ├── [143K]  plot_heatmap.png
+│   ├── [136K]  plot_heatmap_T.png
+│   ├── [ 72K]  plot_hotavg.png
+│   ├── [362K]  plot_hot.png
+│   ├── [ 43K]  plot_papers.png
+│   ├── [169K]  plot_regression.png
+│   ├── [ 56K]  plot_sentiment.png
+│   ├── [362K]  plot_wordcloud.png
+│   ├── [4.3K]  region.csv
+│   ├── [ 31K]  test_corpus.txt
+│   └── [ 55K]  v_a.txt
+├── [   0]  tree.txt
+└── [4.0K]  utils
+    ├── [4.0K]  __pycache__
+    │   ├── [ 10K]  utils.cpython-35.pyc
+    │   ├── [2.3K]  utils_data.cpython-35.pyc
+    │   ├── [2.6K]  utils_load.cpython-35.pyc
+    │   └── [4.2K]  utils_preplot.cpython-35.pyc
+    ├── [3.8K]  utils_preplot.py
+    ├── [ 12K]  utils.py
+    └── [3.4K]  utils_wrangling.py
 
-35 directories, 376 files
+35 directories, 400 files
