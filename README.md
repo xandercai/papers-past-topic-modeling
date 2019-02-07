@@ -125,17 +125,22 @@ papers-past-topic-modeling
 * [The annual average topic weight heat map](https://github.com/xandercai/papers-past-topic-modeling/blob/master/6-analyzing/6-analysis-specific.ipynb):
 ![heatmap](./temp/plot_heatmap.png)
 
-* [Part of the annual average topic weight point plot](https://github.com/xandercai/papers-past-topic-modeling/blob/master/6-analyzing/6-analysis-specific.ipynb):
+* [The average weight plots of annual hotest topics](https://github.com/xandercai/papers-past-topic-modeling/blob/master/6-analyzing/6-analysis-specific.ipynb):
 ![hot](./temp/plot_hotavg.png)
 
-* [One of the annual hotest topic](https://github.com/xandercai/papers-past-topic-modeling/blob/master/6-analyzing/6-analysis-specific.ipynb):
+* [The hotest topic during the Boer War (1899 -1902)](https://github.com/xandercai/papers-past-topic-modeling/blob/master/6-analyzing/6-analysis-specific.ipynb):
 ![hot](./temp/plot_hot.png)
 
-* [The most strong positive correlation topic pairs](https://github.com/xandercai/papers-past-topic-modeling/blob/master/7-applying/1-mining.ipynb):
+* [The strongest positive correlation topics pairwise plot](https://github.com/xandercai/papers-past-topic-modeling/blob/master/7-applying/1-mining.ipynb):
 ![corr](./temp/plot_regression.png)
 
 * [Sentiment analysis on topic models over time](https://github.com/xandercai/papers-past-topic-modeling/blob/master/7-applying/2-sentiment.ipynb):
 ![sentiment](./temp/plot_sentiment.png)
+
+
+## Acknowledgments
+
+This project was supported by the University of Canterbury. Chris Thomson, Ben Adams and James Williams provided immense help with both our technical and theoretical questions. As well as providing guidance and supervisory support throughout the course of this project.
 
 
 ## Copyright

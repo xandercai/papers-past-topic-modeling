@@ -6,10 +6,9 @@ This module provide data loading functions using PySpark
 
 import os
 from pprint import pprint
-
+import pandas as pd
 import findspark
 import pyspark
-
 from pyspark import SparkContext, SparkConf
 from pyspark.sql import functions as F
 from pyspark.sql.types import *
@@ -174,13 +173,14 @@ def load_dataset(dataset, spark):
 
 # for plot:
 
-def filter_topics(df, topic_list):
-    # remove data out of df if topic is not in topic_list
-    return (df[df['topic'].isin(topic_list)])
+def filter_topics(df, list_):
+    return (df[df['topic'].isin(list_)])
 
-def filter_regions(df, region_list):
-    # remove data out of df if topic is not in topic_list
-    return (df[df['region'].isin(region_list)])
+def filter_regions(df, list_):
+    return (df[df['region'].isin(list_)])
+
+def filter_year(df, list_):
+    return (df[df['year'].isin(list_)])
 
 
 def plot_topics(df, kind='', col_order=None, adjust_top=0.97, title=None, height=3.5, col_wrap=2):
@@ -354,51 +354,118 @@ def plot_avg(df_avgweight, col_wrap=10, col_order=None,
 
 
 
-def plot_hot(topic, df_topics, df_domtopic, df_avgweight, adjust_top=0.94, path=None):
+def plot_hot(topic, df_topics, df_domtopic, df_avgweight,
+             adjust_top=0.94, path=None, x1=None, x2=None):
+
+    offset1 = 0
+    offset2 = 0
+
+    if x1 != None and x2 != None:
+        if x1 > 1903:
+            offset1 = offset1 + 3
+        if x2 > 1903:
+            offset2 = offset2 + 3
+
 
     df_plt_dom = filter_topics(df_domtopic, [topic])
     df_plt_avg = filter_topics(df_avgweight, [topic])
 
+    #if x1 !=None and x2 != None:
+    #    xmin = int(df_plt_dom['year'].min())
+    #    xmax = int(df_plt_dom['year'].max())
+
+    #    year_list = list(range(xmin, xmax+1))
+    #    year_list = [str(x) for x in year_list]
+
+    #    df_domtopic_ = filter_year(df_domtopic, year_list)
+
+
     fig = plt.figure(figsize=(13,13))
 
-    ax = fig.add_subplot(3,1,1)
-    ax = sns.pointplot(x='year', y='weight',
-                       color='tab:red',
-                       markers='.',
-                       scale=0.5,
-                       data=df_plt_avg)
-    ax.get_xaxis().set_visible(False)
-    ax.set_ylabel('Annual Average Weight')
+    # point plot
+    ax1 = fig.add_subplot(311)
+    ax1 = sns.pointplot(x='year', y='weight',
+                        color='tab:red',
+                        markers='.',
+                        scale=0.5,
+                        data=df_plt_avg)
 
-    ax = fig.add_subplot(3,1,2)
-    ax = sns.stripplot(x='year', y='weight',
-                       color='tab:blue',
-                       jitter=1.0001,
-                       alpha=0.3,
-                       data=df_plt_dom)
-    ax.get_xaxis().set_visible(False)
-    ax.set_ylabel('Dominant Topic Weight')
+    ax1.get_xaxis().set_visible(True)
+    ax1.xaxis.label.set_visible(False)
+    ax1.set_xticklabels(ax1.get_xticklabels(), rotation=90)
+    ax1.set_ylabel('Annual Average Weight')
 
-    ax1 = fig.add_subplot(3,1,3)
+    pos1 = 0
+    pos2 = 0
+    for i, item in enumerate(ax1.get_xticklabels()):
+        if item.get_text() == str(x1):
+            pos1 = i
+        if item.get_text() == str(x2):
+            pos2 = i
 
-    ax1 = sns.countplot(x='year',
+    if x1 != None and x2 != None:
+        ax1.axvline(x=pos1, color='tab:orange', linestyle='--')
+        ax1.axvline(x=pos2, color='tab:orange', linestyle='--')
+
+    # scatter plot
+    ax2 = fig.add_subplot(312)#, sharex=ax1)
+    ax2 = sns.stripplot(x='year', y='weight',
+                        color='tab:blue',
+                        jitter=1.0001,
+                        alpha=0.3,
+                        data=df_plt_dom)
+
+    ax2.get_xaxis().set_visible(True)
+    ax2.xaxis.label.set_visible(False)
+    ax2.set_xticklabels(ax2.get_xticklabels(), rotation=90)
+    ax2.set_ylabel('Dominant Topic Weight')
+
+    pos1 = 0
+    pos2 = 0
+    for i, item in enumerate(ax2.get_xticklabels()):
+        if item.get_text() == str(x1):
+            pos1 = i
+        if item.get_text() == str(x2):
+            pos2 = i
+
+    if x1 != None and x2 != None:
+        ax2.axvline(x=pos1, color='tab:orange', linestyle='--')
+        ax2.axvline(x=pos2, color='tab:orange', linestyle='--')
+
+    # bar chart
+    ax3 = fig.add_subplot(313, sharex=ax2)
+
+    ax3 = sns.countplot(x='year',
                         color='tab:green',
                         dodge=False,
                         data=df_plt_dom)
-    ax1.set_ylabel('Dominant Topic Count')
-    ax1.set_xlabel('Year')
-    ax1.set_xticklabels(ax.get_xticklabels(), rotation=90)
 
-    ax2 = ax1.twinx()
-    ax2 = sns.countplot(x='year',
-                        color='tab:green',
-                        dodge=False,
-                        facecolor=(0, 0, 0, 0),
-                        linewidth=1,
-                        edgecolor='tab:olive',
-                        data=df_domtopic)
-    ax2.grid(False)
-    ax2.set_ylabel('Total Documents Count')
+    ax3.set_ylabel('Dominant Topic Count')
+    ax3.set_xlabel('Year')
+    ax3.set_xticklabels(ax3.get_xticklabels(), rotation=90)
+
+    pos1 = 0
+    pos2 = 0
+    for i, item in enumerate(ax3.get_xticklabels()):
+        if item.get_text() == str(x1):
+            pos1 = i
+        if item.get_text() == str(x2):
+            pos2 = i
+    if x1 != None and x2 != None:
+        ax3.axvline(x=pos1, color='tab:orange', linestyle='--')
+        ax3.axvline(x=pos2, color='tab:orange', linestyle='--')
+
+    #ax4 = ax3.twinx()
+    #ax4 = sns.countplot(x='year',
+    #                    color='tab:green',
+    #                    dodge=False,
+    #                    facecolor=(0, 0, 0, 0),
+    #                    linewidth=1,
+    #                    edgecolor='tab:olive',
+    #                    data=df_domtopic_)
+    #ax4.grid(False)
+    #ax4.set_ylabel('Total Documents Count')
+
 
     fig.suptitle('Topic#{}\n{}'
                  .format(topic,
@@ -406,7 +473,9 @@ def plot_hot(topic, df_topics, df_domtopic, df_avgweight, adjust_top=0.94, path=
                  fontsize=16)
 
     plt.tight_layout(pad=0, w_pad=0, h_pad=0)
-    fig.subplots_adjust(top=adjust_top)
+    fig.subplots_adjust(top=adjust_top)#, hspace=0.05)
+
+
 
     if path != None:
         plt.savefig(path, dpi=dpi)
@@ -416,3 +485,36 @@ def plot_hot(topic, df_topics, df_domtopic, df_avgweight, adjust_top=0.94, path=
 
     plt.show()
 
+
+
+def gen_event(start, end, df_topics, topic_num=200):
+
+    # set event period
+    event_range = list(range(start, end + 1))
+
+    # load annual average wegith dataframe
+    path = r'../models/train/avgWeight.csv'
+
+    # generate new column names
+    columns = [str(x) for x in list(range(topic_num))]
+    columns.insert(0, 'year')
+
+    df = pd.read_csv(path,
+                           header=None,
+                           index_col=None,
+                           names = columns,
+                           encoding='utf8')
+
+    df_event = df[df['year'].isin(event_range)]
+
+    df_topics_event = df_topics.copy(deep=True)
+
+    # get topic overall average weight and event average weight
+    df_topics_event['event'] = df_event[df_event.columns[1:]].mean().values
+
+    # sort the most vary topic
+    df_topics_event['diff'] = (df_topics_event['event'] - df_topics_event['weight']) / df_topics_event['weight']
+
+    df_topics_event = df_topics_event.sort_values(by='diff', ascending=False)
+
+    return df_topics_event
