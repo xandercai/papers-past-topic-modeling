@@ -30,7 +30,7 @@ The raw dataset contains:
 * total 33 GB,
 * total 68 files,
 * total 16,731,578 documents,
-* each file contains 112 to 3,007,465 documents.
+* each file contains 112 to 3,007,465 documents,
 * each document contains 0 to 156,939 characters.
 
 
