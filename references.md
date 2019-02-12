@@ -1,3 +1,5 @@
+# References
+
 [Blei, D. M.; Ng, Andrew Y.; Jordan, Michael I (January 2003). Lafferty, John, ed. Latent Dirichlet Allocation. Journal of Machine Learning Research. 3 (4–5): pp. 993–1022.](http://www.jmlr.org/papers/volume3/blei03a/blei03a.pdf)
 
 [Blei, D. M. (2012). Probabilistic topic models. Communications of the ACM,55(4), pp. 77. doi:10.1145/2133806.2133826](http://www.cs.columbia.edu/~blei/papers/Blei2012.pdf)
