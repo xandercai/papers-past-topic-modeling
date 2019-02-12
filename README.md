@@ -116,6 +116,8 @@ papers-past-topic-modeling
 
 ## Results
 
+[![Watch the video](./temp/video.jpg)](https://www.youtube.com/watch?v=Usc6iHtjZHM)
+
 * [The papers number over time](https://github.com/xandercai/papers-past-topic-modeling/blob/master/3-exploring/1-explore.ipynb):
 ![papers](./temp/plot_papers.png)
 
