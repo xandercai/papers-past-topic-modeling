@@ -148,7 +148,7 @@ This project was supported by the University of Canterbury. Chris Thomson, Ben A
 
 ## References
 
-See [Reference](./references.md) for more details.
+See [References](./references.md) for more details.
 
 
 ## Copyright
