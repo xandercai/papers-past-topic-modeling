@@ -36,7 +36,7 @@ The raw dataset contains:
 
 ## Built With
 
-We mainly used below tools or pacakges in the project:
+Based on Python, we mainly used below tools or pacakges in the project:
 * [jupyterlab](https://github.com/jupyterlab)
 * [mallet](http://mallet.cs.umass.edu/)
 * [matplotlib](https://matplotlib.org/index.html)
