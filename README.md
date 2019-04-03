@@ -1,6 +1,6 @@
 # Topic Modeling on Historical Newspapers of New Zealand
 
-#### A [UC](https://canterbury.ac.nz/) [MADS](https://www.canterbury.ac.nz/study/qualifications-and-courses/masters-degrees/master-of-applied-data-science/) [Data601 Project](https://www.canterbury.ac.nz/courseinfo/GetCourseDetails.aspx?course=DATA601&occurrence=18X(C)&year=2018) from DigitalNZ, Department of Internal Affairs
+#### A [UC](https://canterbury.ac.nz/) [MADS](https://www.canterbury.ac.nz/study/qualifications-and-courses/masters-degrees/master-of-applied-data-science/) [Data601 Research Project](https://www.canterbury.ac.nz/courseinfo/GetCourseDetails.aspx?course=DATA601&occurrence=18X(C)&year=2018) from DigitalNZ, Department of Internal Affairs
 
 
 ![cover](./temp/cover.png)
@@ -152,9 +152,7 @@ See [References](./references.md) for more details.
 
 ## Author
 
-Xiandong Cai
-
-xandcai@gmail.com
+Xiandong Cai - xandcai@gmail.com
 
 
 ## Copyright
