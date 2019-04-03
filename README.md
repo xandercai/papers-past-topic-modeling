@@ -150,6 +150,11 @@ This project was supported by the University of Canterbury. Chris Thomson, Ben A
 
 See [References](./references.md) for more details.
 
+## Author
+
+Xiandong Cai
+xandcai@gmail.com
+
 
 ## Copyright
 
